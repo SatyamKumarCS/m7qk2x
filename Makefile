@@ -18,8 +18,8 @@ data: ## FR-1.5: download raw Elexon data, then build the processed parquet + qu
 	cd $(BACKEND) && .venv/bin/python -m scripts.fetch_data
 	cd $(BACKEND) && .venv/bin/python -m scripts.build_dataset
 
-notebook: ## Re-run the exploration notebook from a clean kernel and save outputs + figures in place
-	cd $(BACKEND) && .venv/bin/python -m scripts.run_notebook ../notebooks/01_exploration.ipynb
+notebook: ## Re-run every notebook from a clean kernel and save outputs + figures in place
+	cd $(BACKEND) && for nb in ../notebooks/*.ipynb; do .venv/bin/python -m scripts.run_notebook $$nb || exit 1; done
 
 test:
 	cd $(BACKEND) && .venv/bin/pytest -q

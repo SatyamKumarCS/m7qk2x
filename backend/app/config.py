@@ -34,8 +34,8 @@ FORECAST_RESOLUTION_MIN = 60
 # E-13: flag (never drop) values above this. Capacity data is out of scope (assumption A-11).
 SPIKE_THRESHOLD_MW = 30_000
 
-# Analysis settings (PRD §5.4-5.6). HORIZON_BINS_H is provisional until the method decision.
-HORIZON_BINS_H: tuple[float, ...] = (0, 6, 12, 24, 36, 48)
+# Analysis settings (PRD §5.4-5.6). Horizon bucket edges, half-open [a, b) hours (ADR 0008).
+HORIZON_BINS_H: tuple[float, ...] = (0, 6, 12, 24, 36, 48, 72)
 WIND_LEVEL_BINS_MW: tuple[float, ...] = (float("-inf"), 5000, 10000, 15000, float("inf"))
 LOW_SAMPLE_N = 30
 MAPE_MIN_ACTUAL_MW = 1000
