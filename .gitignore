@@ -1,6 +1,10 @@
 # Q-8: the client brief stays local and out of the public repo (docs/assumptions.md)
 /REint Full Stack SWE challenge v4.1 Shared - intern.md
 
+# Raw Elexon downloads stay local; `python -m scripts.fetch_data` rebuilds them (docs/data_notes.md §5)
+/backend/data/raw/*
+!/backend/data/raw/.gitkeep
+
 # Python
 __pycache__/
 *.py[cod]

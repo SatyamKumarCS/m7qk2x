@@ -48,6 +48,7 @@ make test                      # pytest (backend)
 make lint                      # ruff check + format check; eslint + prettier check
 make format                    # apply ruff + prettier fixes
 make lock                      # re-pin backend deps from requirements*.in
+cd backend && .venv/bin/python -m scripts.fetch_data   # download raw Elexon data (gitignored)
 cd backend && .venv/bin/uvicorn app.main:app --reload --port 8000
 cd frontend && npm run dev     # :5173
 make data / make up            # stubs until the pipeline / Docker tickets
