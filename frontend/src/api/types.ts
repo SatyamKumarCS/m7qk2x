@@ -17,7 +17,15 @@ export interface HealthResponse {
   dataLoaded: boolean
   actualsRows: number
   forecastRows: number
-  dataRange: { start: IsoDate; end: IsoDate }
+  dataRange: { start: IsoDate; end: IsoDate } | null // null when the data failed to load
+}
+
+/** Request parameters echoed back by every range endpoint. */
+export interface Echo {
+  start: IsoDate
+  end: IsoDate
+  cutoff: string | null // null for breakdown by=horizon (cutoff-independent)
+  timezone: string // "Europe/London"
 }
 
 export interface QualityReport {
@@ -79,12 +87,12 @@ export interface TimeseriesPoint {
   evaluated: boolean
 }
 
-export interface TimeseriesResponse {
+export interface TimeseriesResponse extends Echo {
   points: TimeseriesPoint[]
   counts: Counts
 }
 
-export interface MetricsResponse {
+export interface MetricsResponse extends Echo {
   metrics: {
     mae: number | null
     rmse: number | null
@@ -113,7 +121,7 @@ export interface BreakdownGroup {
   lowSample: boolean
 }
 
-export interface BreakdownResponse {
+export interface BreakdownResponse extends Echo {
   by: BreakdownBy
   groups: BreakdownGroup[]
   note: string | null
@@ -158,6 +166,9 @@ export interface BandPoint {
 }
 
 export interface BandResponse {
+  date: IsoDate
+  cutoff: string
+  timezone: string
   level: BandLevel
   qLo: number | null
   qHi: number | null
@@ -170,8 +181,10 @@ export interface BandResponse {
     heldOutCoverage: number | null
   }
   points: BandPoint[]
-  summary: DaySummary & { containsForecast: { points: number; contained: number; all: boolean } }
-  reason?: string | null
+  summary: DaySummary & {
+    containsForecast: { points: number; contained: number; all: boolean } | null // diagnostic only
+  }
+  reason: string | null // set when the band could not be calibrated
 }
 
 /** Common query parameters (spec §5): inclusive delivery dates and a UK cutoff clock. */

@@ -46,5 +46,6 @@ BAND_HELD_OUT_MIN_DAYS = 7  # rolling-origin evaluation starts once 7 days of hi
 BAND_HELD_OUT_LAG_DAYS = 2  # day D is calibrated on days <= D-2: D-1 is incomplete at the cutoff
 
 # API (FR-2.10, FR-2.11).
+API_VERSION = "0.1.0"
 CACHE_SIZE = 256
 CORS_ORIGINS: list[str] = os.environ.get("CORS_ORIGINS", "http://localhost:5173").split(",")
