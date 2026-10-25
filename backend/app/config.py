@@ -40,6 +40,10 @@ WIND_LEVEL_BINS_MW: tuple[float, ...] = (float("-inf"), 5000, 10000, 15000, floa
 LOW_SAMPLE_N = 30
 MAPE_MIN_ACTUAL_MW = 1000
 BAND_QUANTILES: dict[int, tuple[float, float]] = {80: (0.10, 0.90), 90: (0.05, 0.95)}
+BAND_DEFAULT_LEVEL = 80
+BAND_MIN_CALIBRATION_N = 100  # fewer valid residuals → no band, with a reason (ADR 0006)
+BAND_HELD_OUT_MIN_DAYS = 7  # rolling-origin evaluation starts once 7 days of history exist
+BAND_HELD_OUT_LAG_DAYS = 2  # day D is calibrated on days <= D-2: D-1 is incomplete at the cutoff
 
 # API (FR-2.10, FR-2.11).
 CACHE_SIZE = 256
