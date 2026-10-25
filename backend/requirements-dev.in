@@ -4,3 +4,8 @@
 pytest==9.1.1
 httpx2==2.16.0  # Starlette 1.x TestClient deprecates httpx in favour of httpx2
 ruff==0.17.2
+# Exploration notebook (notebooks/01_exploration.ipynb): plotting and headless execution
+matplotlib==3.11.2
+ipykernel==7.4.0
+nbclient==0.11.0
+nbformat==5.11.1

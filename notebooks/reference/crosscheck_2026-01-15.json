@@ -1,0 +1,1530 @@
+{
+ "purpose": "Independent cross-check for 15 Jan 2026 (issue 007), fetched 2026-10-25 from the endpoints behind the BMRS website pages.",
+ "windforecast_history": {
+  "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/history?publishTime=2026-01-14T07:30:00Z",
+  "rows": [
+   {
+    "startTime": "2026-01-13T21:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 12079
+   },
+   {
+    "startTime": "2026-01-13T22:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 11434
+   },
+   {
+    "startTime": "2026-01-13T23:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 10988
+   },
+   {
+    "startTime": "2026-01-14T00:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 10739
+   },
+   {
+    "startTime": "2026-01-14T01:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 10702
+   },
+   {
+    "startTime": "2026-01-14T02:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 10218
+   },
+   {
+    "startTime": "2026-01-14T03:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9645
+   },
+   {
+    "startTime": "2026-01-14T04:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9233
+   },
+   {
+    "startTime": "2026-01-14T05:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8822
+   },
+   {
+    "startTime": "2026-01-14T06:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8445
+   },
+   {
+    "startTime": "2026-01-14T07:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8117
+   },
+   {
+    "startTime": "2026-01-14T08:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7853
+   },
+   {
+    "startTime": "2026-01-14T09:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7785
+   },
+   {
+    "startTime": "2026-01-14T10:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7822
+   },
+   {
+    "startTime": "2026-01-14T11:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7935
+   },
+   {
+    "startTime": "2026-01-14T12:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8035
+   },
+   {
+    "startTime": "2026-01-14T13:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8191
+   },
+   {
+    "startTime": "2026-01-14T14:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8400
+   },
+   {
+    "startTime": "2026-01-14T15:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8882
+   },
+   {
+    "startTime": "2026-01-14T16:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9622
+   },
+   {
+    "startTime": "2026-01-14T17:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 10775
+   },
+   {
+    "startTime": "2026-01-14T18:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 12157
+   },
+   {
+    "startTime": "2026-01-14T19:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 13602
+   },
+   {
+    "startTime": "2026-01-14T20:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 14658
+   },
+   {
+    "startTime": "2026-01-14T21:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 15334
+   },
+   {
+    "startTime": "2026-01-14T22:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 15773
+   },
+   {
+    "startTime": "2026-01-14T23:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 15985
+   },
+   {
+    "startTime": "2026-01-15T00:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 15834
+   },
+   {
+    "startTime": "2026-01-15T01:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 15478
+   },
+   {
+    "startTime": "2026-01-15T02:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 15066
+   },
+   {
+    "startTime": "2026-01-15T03:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 14655
+   },
+   {
+    "startTime": "2026-01-15T04:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 14497
+   },
+   {
+    "startTime": "2026-01-15T05:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 14419
+   },
+   {
+    "startTime": "2026-01-15T06:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 14017
+   },
+   {
+    "startTime": "2026-01-15T07:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 13411
+   },
+   {
+    "startTime": "2026-01-15T08:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 12931
+   },
+   {
+    "startTime": "2026-01-15T09:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 12576
+   },
+   {
+    "startTime": "2026-01-15T10:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 12081
+   },
+   {
+    "startTime": "2026-01-15T11:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 11578
+   },
+   {
+    "startTime": "2026-01-15T12:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 11049
+   },
+   {
+    "startTime": "2026-01-15T13:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 10378
+   },
+   {
+    "startTime": "2026-01-15T14:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9619
+   },
+   {
+    "startTime": "2026-01-15T15:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9050
+   },
+   {
+    "startTime": "2026-01-15T16:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8864
+   },
+   {
+    "startTime": "2026-01-15T17:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8870
+   },
+   {
+    "startTime": "2026-01-15T18:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8962
+   },
+   {
+    "startTime": "2026-01-15T19:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9130
+   },
+   {
+    "startTime": "2026-01-15T20:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9059
+   },
+   {
+    "startTime": "2026-01-15T21:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9049
+   },
+   {
+    "startTime": "2026-01-15T22:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9091
+   },
+   {
+    "startTime": "2026-01-15T23:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8966
+   },
+   {
+    "startTime": "2026-01-16T00:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8792
+   },
+   {
+    "startTime": "2026-01-16T01:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8676
+   },
+   {
+    "startTime": "2026-01-16T02:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8478
+   },
+   {
+    "startTime": "2026-01-16T03:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8403
+   },
+   {
+    "startTime": "2026-01-16T04:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8334
+   },
+   {
+    "startTime": "2026-01-16T05:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8232
+   },
+   {
+    "startTime": "2026-01-16T06:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8225
+   },
+   {
+    "startTime": "2026-01-16T07:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8339
+   },
+   {
+    "startTime": "2026-01-16T08:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8560
+   },
+   {
+    "startTime": "2026-01-16T09:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8913
+   },
+   {
+    "startTime": "2026-01-16T10:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9092
+   },
+   {
+    "startTime": "2026-01-16T11:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 9034
+   },
+   {
+    "startTime": "2026-01-16T12:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8889
+   },
+   {
+    "startTime": "2026-01-16T13:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8562
+   },
+   {
+    "startTime": "2026-01-16T14:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 8180
+   },
+   {
+    "startTime": "2026-01-16T15:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7961
+   },
+   {
+    "startTime": "2026-01-16T16:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7908
+   },
+   {
+    "startTime": "2026-01-16T17:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7924
+   },
+   {
+    "startTime": "2026-01-16T18:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7892
+   },
+   {
+    "startTime": "2026-01-16T19:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7777
+   },
+   {
+    "startTime": "2026-01-16T20:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7568
+   },
+   {
+    "startTime": "2026-01-16T21:00:00Z",
+    "publishTime": "2026-01-14T07:30:00Z",
+    "generation": 7268
+   }
+  ]
+ },
+ "fuelinst_wind": {
+  "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELINST/stream?settlementDateFrom=2026-01-15&settlementDateTo=2026-01-15&fuelType=WIND",
+  "rows": [
+   {
+    "startTime": "2026-01-15T23:55:00Z",
+    "generation": 7422
+   },
+   {
+    "startTime": "2026-01-15T23:50:00Z",
+    "generation": 7378
+   },
+   {
+    "startTime": "2026-01-15T23:45:00Z",
+    "generation": 7381
+   },
+   {
+    "startTime": "2026-01-15T23:40:00Z",
+    "generation": 7420
+   },
+   {
+    "startTime": "2026-01-15T23:35:00Z",
+    "generation": 7423
+   },
+   {
+    "startTime": "2026-01-15T23:30:00Z",
+    "generation": 7417
+   },
+   {
+    "startTime": "2026-01-15T23:25:00Z",
+    "generation": 7278
+   },
+   {
+    "startTime": "2026-01-15T23:20:00Z",
+    "generation": 7204
+   },
+   {
+    "startTime": "2026-01-15T23:15:00Z",
+    "generation": 7209
+   },
+   {
+    "startTime": "2026-01-15T23:10:00Z",
+    "generation": 7249
+   },
+   {
+    "startTime": "2026-01-15T23:05:00Z",
+    "generation": 7278
+   },
+   {
+    "startTime": "2026-01-15T23:00:00Z",
+    "generation": 7332
+   },
+   {
+    "startTime": "2026-01-15T22:55:00Z",
+    "generation": 7402
+   },
+   {
+    "startTime": "2026-01-15T22:50:00Z",
+    "generation": 7428
+   },
+   {
+    "startTime": "2026-01-15T22:45:00Z",
+    "generation": 7422
+   },
+   {
+    "startTime": "2026-01-15T22:40:00Z",
+    "generation": 7442
+   },
+   {
+    "startTime": "2026-01-15T22:35:00Z",
+    "generation": 7453
+   },
+   {
+    "startTime": "2026-01-15T22:30:00Z",
+    "generation": 7440
+   },
+   {
+    "startTime": "2026-01-15T22:25:00Z",
+    "generation": 7499
+   },
+   {
+    "startTime": "2026-01-15T22:20:00Z",
+    "generation": 7607
+   },
+   {
+    "startTime": "2026-01-15T22:15:00Z",
+    "generation": 7707
+   },
+   {
+    "startTime": "2026-01-15T22:10:00Z",
+    "generation": 7745
+   },
+   {
+    "startTime": "2026-01-15T22:05:00Z",
+    "generation": 7772
+   },
+   {
+    "startTime": "2026-01-15T22:00:00Z",
+    "generation": 7781
+   },
+   {
+    "startTime": "2026-01-15T21:55:00Z",
+    "generation": 7814
+   },
+   {
+    "startTime": "2026-01-15T21:50:00Z",
+    "generation": 7862
+   },
+   {
+    "startTime": "2026-01-15T21:45:00Z",
+    "generation": 7935
+   },
+   {
+    "startTime": "2026-01-15T21:40:00Z",
+    "generation": 8013
+   },
+   {
+    "startTime": "2026-01-15T21:35:00Z",
+    "generation": 8012
+   },
+   {
+    "startTime": "2026-01-15T21:30:00Z",
+    "generation": 7996
+   },
+   {
+    "startTime": "2026-01-15T21:25:00Z",
+    "generation": 7897
+   },
+   {
+    "startTime": "2026-01-15T21:20:00Z",
+    "generation": 7788
+   },
+   {
+    "startTime": "2026-01-15T21:15:00Z",
+    "generation": 7671
+   },
+   {
+    "startTime": "2026-01-15T21:10:00Z",
+    "generation": 7559
+   },
+   {
+    "startTime": "2026-01-15T21:05:00Z",
+    "generation": 7431
+   },
+   {
+    "startTime": "2026-01-15T21:00:00Z",
+    "generation": 7270
+   },
+   {
+    "startTime": "2026-01-15T20:55:00Z",
+    "generation": 7145
+   },
+   {
+    "startTime": "2026-01-15T20:50:00Z",
+    "generation": 7107
+   },
+   {
+    "startTime": "2026-01-15T20:45:00Z",
+    "generation": 7121
+   },
+   {
+    "startTime": "2026-01-15T20:40:00Z",
+    "generation": 7183
+   },
+   {
+    "startTime": "2026-01-15T20:35:00Z",
+    "generation": 7253
+   },
+   {
+    "startTime": "2026-01-15T20:30:00Z",
+    "generation": 7291
+   },
+   {
+    "startTime": "2026-01-15T20:25:00Z",
+    "generation": 7374
+   },
+   {
+    "startTime": "2026-01-15T20:20:00Z",
+    "generation": 7459
+   },
+   {
+    "startTime": "2026-01-15T20:15:00Z",
+    "generation": 7531
+   },
+   {
+    "startTime": "2026-01-15T20:10:00Z",
+    "generation": 7608
+   },
+   {
+    "startTime": "2026-01-15T20:05:00Z",
+    "generation": 7679
+   },
+   {
+    "startTime": "2026-01-15T20:00:00Z",
+    "generation": 7685
+   },
+   {
+    "startTime": "2026-01-15T19:55:00Z",
+    "generation": 7710
+   },
+   {
+    "startTime": "2026-01-15T19:50:00Z",
+    "generation": 7690
+   },
+   {
+    "startTime": "2026-01-15T19:45:00Z",
+    "generation": 7635
+   },
+   {
+    "startTime": "2026-01-15T19:40:00Z",
+    "generation": 7576
+   },
+   {
+    "startTime": "2026-01-15T19:35:00Z",
+    "generation": 7565
+   },
+   {
+    "startTime": "2026-01-15T19:30:00Z",
+    "generation": 7528
+   },
+   {
+    "startTime": "2026-01-15T19:25:00Z",
+    "generation": 7515
+   },
+   {
+    "startTime": "2026-01-15T19:20:00Z",
+    "generation": 7580
+   },
+   {
+    "startTime": "2026-01-15T19:15:00Z",
+    "generation": 7661
+   },
+   {
+    "startTime": "2026-01-15T19:10:00Z",
+    "generation": 7696
+   },
+   {
+    "startTime": "2026-01-15T19:05:00Z",
+    "generation": 7689
+   },
+   {
+    "startTime": "2026-01-15T19:00:00Z",
+    "generation": 7644
+   },
+   {
+    "startTime": "2026-01-15T18:55:00Z",
+    "generation": 7614
+   },
+   {
+    "startTime": "2026-01-15T18:50:00Z",
+    "generation": 7558
+   },
+   {
+    "startTime": "2026-01-15T18:45:00Z",
+    "generation": 7559
+   },
+   {
+    "startTime": "2026-01-15T18:40:00Z",
+    "generation": 7591
+   },
+   {
+    "startTime": "2026-01-15T18:35:00Z",
+    "generation": 7613
+   },
+   {
+    "startTime": "2026-01-15T18:30:00Z",
+    "generation": 7622
+   },
+   {
+    "startTime": "2026-01-15T18:25:00Z",
+    "generation": 7619
+   },
+   {
+    "startTime": "2026-01-15T18:20:00Z",
+    "generation": 7627
+   },
+   {
+    "startTime": "2026-01-15T18:15:00Z",
+    "generation": 7633
+   },
+   {
+    "startTime": "2026-01-15T18:10:00Z",
+    "generation": 7672
+   },
+   {
+    "startTime": "2026-01-15T18:05:00Z",
+    "generation": 7713
+   },
+   {
+    "startTime": "2026-01-15T18:00:00Z",
+    "generation": 7768
+   },
+   {
+    "startTime": "2026-01-15T17:55:00Z",
+    "generation": 7793
+   },
+   {
+    "startTime": "2026-01-15T17:50:00Z",
+    "generation": 7861
+   },
+   {
+    "startTime": "2026-01-15T17:45:00Z",
+    "generation": 7937
+   },
+   {
+    "startTime": "2026-01-15T17:40:00Z",
+    "generation": 8062
+   },
+   {
+    "startTime": "2026-01-15T17:35:00Z",
+    "generation": 8144
+   },
+   {
+    "startTime": "2026-01-15T17:30:00Z",
+    "generation": 8228
+   },
+   {
+    "startTime": "2026-01-15T17:25:00Z",
+    "generation": 8264
+   },
+   {
+    "startTime": "2026-01-15T17:20:00Z",
+    "generation": 8295
+   },
+   {
+    "startTime": "2026-01-15T17:15:00Z",
+    "generation": 8288
+   },
+   {
+    "startTime": "2026-01-15T17:10:00Z",
+    "generation": 8261
+   },
+   {
+    "startTime": "2026-01-15T17:05:00Z",
+    "generation": 8256
+   },
+   {
+    "startTime": "2026-01-15T17:00:00Z",
+    "generation": 8229
+   },
+   {
+    "startTime": "2026-01-15T16:55:00Z",
+    "generation": 8259
+   },
+   {
+    "startTime": "2026-01-15T16:50:00Z",
+    "generation": 8277
+   },
+   {
+    "startTime": "2026-01-15T16:45:00Z",
+    "generation": 8300
+   },
+   {
+    "startTime": "2026-01-15T16:40:00Z",
+    "generation": 8379
+   },
+   {
+    "startTime": "2026-01-15T16:35:00Z",
+    "generation": 8496
+   },
+   {
+    "startTime": "2026-01-15T16:30:00Z",
+    "generation": 8554
+   },
+   {
+    "startTime": "2026-01-15T16:25:00Z",
+    "generation": 8554
+   },
+   {
+    "startTime": "2026-01-15T16:20:00Z",
+    "generation": 8573
+   },
+   {
+    "startTime": "2026-01-15T16:15:00Z",
+    "generation": 8575
+   },
+   {
+    "startTime": "2026-01-15T16:10:00Z",
+    "generation": 8542
+   },
+   {
+    "startTime": "2026-01-15T16:05:00Z",
+    "generation": 8526
+   },
+   {
+    "startTime": "2026-01-15T16:00:00Z",
+    "generation": 8490
+   },
+   {
+    "startTime": "2026-01-15T15:55:00Z",
+    "generation": 8495
+   },
+   {
+    "startTime": "2026-01-15T15:50:00Z",
+    "generation": 8547
+   },
+   {
+    "startTime": "2026-01-15T15:45:00Z",
+    "generation": 8630
+   },
+   {
+    "startTime": "2026-01-15T15:40:00Z",
+    "generation": 8636
+   },
+   {
+    "startTime": "2026-01-15T15:35:00Z",
+    "generation": 8676
+   },
+   {
+    "startTime": "2026-01-15T15:30:00Z",
+    "generation": 8666
+   },
+   {
+    "startTime": "2026-01-15T15:25:00Z",
+    "generation": 8586
+   },
+   {
+    "startTime": "2026-01-15T15:20:00Z",
+    "generation": 8508
+   },
+   {
+    "startTime": "2026-01-15T15:15:00Z",
+    "generation": 8466
+   },
+   {
+    "startTime": "2026-01-15T15:10:00Z",
+    "generation": 8460
+   },
+   {
+    "startTime": "2026-01-15T15:05:00Z",
+    "generation": 8463
+   },
+   {
+    "startTime": "2026-01-15T15:00:00Z",
+    "generation": 8410
+   },
+   {
+    "startTime": "2026-01-15T14:55:00Z",
+    "generation": 8361
+   },
+   {
+    "startTime": "2026-01-15T14:50:00Z",
+    "generation": 8290
+   },
+   {
+    "startTime": "2026-01-15T14:45:00Z",
+    "generation": 8316
+   },
+   {
+    "startTime": "2026-01-15T14:40:00Z",
+    "generation": 8234
+   },
+   {
+    "startTime": "2026-01-15T14:35:00Z",
+    "generation": 8158
+   },
+   {
+    "startTime": "2026-01-15T14:30:00Z",
+    "generation": 8224
+   },
+   {
+    "startTime": "2026-01-15T14:25:00Z",
+    "generation": 8282
+   },
+   {
+    "startTime": "2026-01-15T14:20:00Z",
+    "generation": 8378
+   },
+   {
+    "startTime": "2026-01-15T14:15:00Z",
+    "generation": 8385
+   },
+   {
+    "startTime": "2026-01-15T14:10:00Z",
+    "generation": 8386
+   },
+   {
+    "startTime": "2026-01-15T14:05:00Z",
+    "generation": 8389
+   },
+   {
+    "startTime": "2026-01-15T14:00:00Z",
+    "generation": 8486
+   },
+   {
+    "startTime": "2026-01-15T13:55:00Z",
+    "generation": 8644
+   },
+   {
+    "startTime": "2026-01-15T13:50:00Z",
+    "generation": 8759
+   },
+   {
+    "startTime": "2026-01-15T13:45:00Z",
+    "generation": 8841
+   },
+   {
+    "startTime": "2026-01-15T13:40:00Z",
+    "generation": 8845
+   },
+   {
+    "startTime": "2026-01-15T13:35:00Z",
+    "generation": 8785
+   },
+   {
+    "startTime": "2026-01-15T13:30:00Z",
+    "generation": 8750
+   },
+   {
+    "startTime": "2026-01-15T13:25:00Z",
+    "generation": 8667
+   },
+   {
+    "startTime": "2026-01-15T13:20:00Z",
+    "generation": 8673
+   },
+   {
+    "startTime": "2026-01-15T13:15:00Z",
+    "generation": 8749
+   },
+   {
+    "startTime": "2026-01-15T13:10:00Z",
+    "generation": 8845
+   },
+   {
+    "startTime": "2026-01-15T13:05:00Z",
+    "generation": 8979
+   },
+   {
+    "startTime": "2026-01-15T13:00:00Z",
+    "generation": 9145
+   },
+   {
+    "startTime": "2026-01-15T12:55:00Z",
+    "generation": 9334
+   },
+   {
+    "startTime": "2026-01-15T12:50:00Z",
+    "generation": 9576
+   },
+   {
+    "startTime": "2026-01-15T12:45:00Z",
+    "generation": 9768
+   },
+   {
+    "startTime": "2026-01-15T12:40:00Z",
+    "generation": 10009
+   },
+   {
+    "startTime": "2026-01-15T12:35:00Z",
+    "generation": 10097
+   },
+   {
+    "startTime": "2026-01-15T12:30:00Z",
+    "generation": 10247
+   },
+   {
+    "startTime": "2026-01-15T12:25:00Z",
+    "generation": 10285
+   },
+   {
+    "startTime": "2026-01-15T12:20:00Z",
+    "generation": 10187
+   },
+   {
+    "startTime": "2026-01-15T12:15:00Z",
+    "generation": 9909
+   },
+   {
+    "startTime": "2026-01-15T12:10:00Z",
+    "generation": 9686
+   },
+   {
+    "startTime": "2026-01-15T12:05:00Z",
+    "generation": 9523
+   },
+   {
+    "startTime": "2026-01-15T12:00:00Z",
+    "generation": 9406
+   },
+   {
+    "startTime": "2026-01-15T11:55:00Z",
+    "generation": 9441
+   },
+   {
+    "startTime": "2026-01-15T11:50:00Z",
+    "generation": 9485
+   },
+   {
+    "startTime": "2026-01-15T11:45:00Z",
+    "generation": 9629
+   },
+   {
+    "startTime": "2026-01-15T11:40:00Z",
+    "generation": 9699
+   },
+   {
+    "startTime": "2026-01-15T11:35:00Z",
+    "generation": 9669
+   },
+   {
+    "startTime": "2026-01-15T11:30:00Z",
+    "generation": 9680
+   },
+   {
+    "startTime": "2026-01-15T11:25:00Z",
+    "generation": 9706
+   },
+   {
+    "startTime": "2026-01-15T11:20:00Z",
+    "generation": 9643
+   },
+   {
+    "startTime": "2026-01-15T11:15:00Z",
+    "generation": 9721
+   },
+   {
+    "startTime": "2026-01-15T11:10:00Z",
+    "generation": 9834
+   },
+   {
+    "startTime": "2026-01-15T11:05:00Z",
+    "generation": 10027
+   },
+   {
+    "startTime": "2026-01-15T11:00:00Z",
+    "generation": 10647
+   },
+   {
+    "startTime": "2026-01-15T10:55:00Z",
+    "generation": 11303
+   },
+   {
+    "startTime": "2026-01-15T10:50:00Z",
+    "generation": 11303
+   },
+   {
+    "startTime": "2026-01-15T10:45:00Z",
+    "generation": 11303
+   },
+   {
+    "startTime": "2026-01-15T10:40:00Z",
+    "generation": 11303
+   },
+   {
+    "startTime": "2026-01-15T10:35:00Z",
+    "generation": 11303
+   },
+   {
+    "startTime": "2026-01-15T10:30:00Z",
+    "generation": 11303
+   },
+   {
+    "startTime": "2026-01-15T10:25:00Z",
+    "generation": 0
+   },
+   {
+    "startTime": "2026-01-15T10:20:00Z",
+    "generation": 11461
+   },
+   {
+    "startTime": "2026-01-15T10:15:00Z",
+    "generation": 11658
+   },
+   {
+    "startTime": "2026-01-15T10:10:00Z",
+    "generation": 11742
+   },
+   {
+    "startTime": "2026-01-15T10:05:00Z",
+    "generation": 11933
+   },
+   {
+    "startTime": "2026-01-15T10:00:00Z",
+    "generation": 12050
+   },
+   {
+    "startTime": "2026-01-15T09:55:00Z",
+    "generation": 12107
+   },
+   {
+    "startTime": "2026-01-15T09:50:00Z",
+    "generation": 12202
+   },
+   {
+    "startTime": "2026-01-15T09:45:00Z",
+    "generation": 12227
+   },
+   {
+    "startTime": "2026-01-15T09:40:00Z",
+    "generation": 12148
+   },
+   {
+    "startTime": "2026-01-15T09:35:00Z",
+    "generation": 12083
+   },
+   {
+    "startTime": "2026-01-15T09:30:00Z",
+    "generation": 12099
+   },
+   {
+    "startTime": "2026-01-15T09:25:00Z",
+    "generation": 12276
+   },
+   {
+    "startTime": "2026-01-15T09:20:00Z",
+    "generation": 12277
+   },
+   {
+    "startTime": "2026-01-15T09:15:00Z",
+    "generation": 12307
+   },
+   {
+    "startTime": "2026-01-15T09:10:00Z",
+    "generation": 12237
+   },
+   {
+    "startTime": "2026-01-15T09:05:00Z",
+    "generation": 12155
+   },
+   {
+    "startTime": "2026-01-15T09:00:00Z",
+    "generation": 12201
+   },
+   {
+    "startTime": "2026-01-15T08:55:00Z",
+    "generation": 12262
+   },
+   {
+    "startTime": "2026-01-15T08:50:00Z",
+    "generation": 12246
+   },
+   {
+    "startTime": "2026-01-15T08:45:00Z",
+    "generation": 12250
+   },
+   {
+    "startTime": "2026-01-15T08:40:00Z",
+    "generation": 12308
+   },
+   {
+    "startTime": "2026-01-15T08:35:00Z",
+    "generation": 12342
+   },
+   {
+    "startTime": "2026-01-15T08:30:00Z",
+    "generation": 12402
+   },
+   {
+    "startTime": "2026-01-15T08:25:00Z",
+    "generation": 12520
+   },
+   {
+    "startTime": "2026-01-15T08:20:00Z",
+    "generation": 12594
+   },
+   {
+    "startTime": "2026-01-15T08:15:00Z",
+    "generation": 12679
+   },
+   {
+    "startTime": "2026-01-15T08:10:00Z",
+    "generation": 12795
+   },
+   {
+    "startTime": "2026-01-15T08:05:00Z",
+    "generation": 12859
+   },
+   {
+    "startTime": "2026-01-15T08:00:00Z",
+    "generation": 12867
+   },
+   {
+    "startTime": "2026-01-15T07:55:00Z",
+    "generation": 12796
+   },
+   {
+    "startTime": "2026-01-15T07:50:00Z",
+    "generation": 12821
+   },
+   {
+    "startTime": "2026-01-15T07:45:00Z",
+    "generation": 12931
+   },
+   {
+    "startTime": "2026-01-15T07:40:00Z",
+    "generation": 13025
+   },
+   {
+    "startTime": "2026-01-15T07:35:00Z",
+    "generation": 12984
+   },
+   {
+    "startTime": "2026-01-15T07:30:00Z",
+    "generation": 13064
+   },
+   {
+    "startTime": "2026-01-15T07:25:00Z",
+    "generation": 13201
+   },
+   {
+    "startTime": "2026-01-15T07:20:00Z",
+    "generation": 13283
+   },
+   {
+    "startTime": "2026-01-15T07:15:00Z",
+    "generation": 13401
+   },
+   {
+    "startTime": "2026-01-15T07:10:00Z",
+    "generation": 13537
+   },
+   {
+    "startTime": "2026-01-15T07:05:00Z",
+    "generation": 13532
+   },
+   {
+    "startTime": "2026-01-15T07:00:00Z",
+    "generation": 13451
+   },
+   {
+    "startTime": "2026-01-15T06:55:00Z",
+    "generation": 13454
+   },
+   {
+    "startTime": "2026-01-15T06:50:00Z",
+    "generation": 13473
+   },
+   {
+    "startTime": "2026-01-15T06:45:00Z",
+    "generation": 13573
+   },
+   {
+    "startTime": "2026-01-15T06:40:00Z",
+    "generation": 13553
+   },
+   {
+    "startTime": "2026-01-15T06:35:00Z",
+    "generation": 13560
+   },
+   {
+    "startTime": "2026-01-15T06:30:00Z",
+    "generation": 13496
+   },
+   {
+    "startTime": "2026-01-15T06:25:00Z",
+    "generation": 13407
+   },
+   {
+    "startTime": "2026-01-15T06:20:00Z",
+    "generation": 13344
+   },
+   {
+    "startTime": "2026-01-15T06:15:00Z",
+    "generation": 13252
+   },
+   {
+    "startTime": "2026-01-15T06:10:00Z",
+    "generation": 13145
+   },
+   {
+    "startTime": "2026-01-15T06:05:00Z",
+    "generation": 13189
+   },
+   {
+    "startTime": "2026-01-15T06:00:00Z",
+    "generation": 13196
+   },
+   {
+    "startTime": "2026-01-15T05:55:00Z",
+    "generation": 13230
+   },
+   {
+    "startTime": "2026-01-15T05:50:00Z",
+    "generation": 13243
+   },
+   {
+    "startTime": "2026-01-15T05:45:00Z",
+    "generation": 13263
+   },
+   {
+    "startTime": "2026-01-15T05:40:00Z",
+    "generation": 13396
+   },
+   {
+    "startTime": "2026-01-15T05:35:00Z",
+    "generation": 13524
+   },
+   {
+    "startTime": "2026-01-15T05:30:00Z",
+    "generation": 13679
+   },
+   {
+    "startTime": "2026-01-15T05:25:00Z",
+    "generation": 13719
+   },
+   {
+    "startTime": "2026-01-15T05:20:00Z",
+    "generation": 13747
+   },
+   {
+    "startTime": "2026-01-15T05:15:00Z",
+    "generation": 13654
+   },
+   {
+    "startTime": "2026-01-15T05:10:00Z",
+    "generation": 13685
+   },
+   {
+    "startTime": "2026-01-15T05:05:00Z",
+    "generation": 13738
+   },
+   {
+    "startTime": "2026-01-15T05:00:00Z",
+    "generation": 13680
+   },
+   {
+    "startTime": "2026-01-15T04:55:00Z",
+    "generation": 13654
+   },
+   {
+    "startTime": "2026-01-15T04:50:00Z",
+    "generation": 13715
+   },
+   {
+    "startTime": "2026-01-15T04:45:00Z",
+    "generation": 13738
+   },
+   {
+    "startTime": "2026-01-15T04:40:00Z",
+    "generation": 13719
+   },
+   {
+    "startTime": "2026-01-15T04:35:00Z",
+    "generation": 13741
+   },
+   {
+    "startTime": "2026-01-15T04:30:00Z",
+    "generation": 13712
+   },
+   {
+    "startTime": "2026-01-15T04:25:00Z",
+    "generation": 13788
+   },
+   {
+    "startTime": "2026-01-15T04:20:00Z",
+    "generation": 13790
+   },
+   {
+    "startTime": "2026-01-15T04:15:00Z",
+    "generation": 13775
+   },
+   {
+    "startTime": "2026-01-15T04:10:00Z",
+    "generation": 13833
+   },
+   {
+    "startTime": "2026-01-15T04:05:00Z",
+    "generation": 13930
+   },
+   {
+    "startTime": "2026-01-15T04:00:00Z",
+    "generation": 14178
+   },
+   {
+    "startTime": "2026-01-15T03:55:00Z",
+    "generation": 14401
+   },
+   {
+    "startTime": "2026-01-15T03:50:00Z",
+    "generation": 14313
+   },
+   {
+    "startTime": "2026-01-15T03:45:00Z",
+    "generation": 14321
+   },
+   {
+    "startTime": "2026-01-15T03:40:00Z",
+    "generation": 14303
+   },
+   {
+    "startTime": "2026-01-15T03:35:00Z",
+    "generation": 14149
+   },
+   {
+    "startTime": "2026-01-15T03:30:00Z",
+    "generation": 14013
+   },
+   {
+    "startTime": "2026-01-15T03:25:00Z",
+    "generation": 13940
+   },
+   {
+    "startTime": "2026-01-15T03:20:00Z",
+    "generation": 13973
+   },
+   {
+    "startTime": "2026-01-15T03:15:00Z",
+    "generation": 14046
+   },
+   {
+    "startTime": "2026-01-15T03:10:00Z",
+    "generation": 14105
+   },
+   {
+    "startTime": "2026-01-15T03:05:00Z",
+    "generation": 14038
+   },
+   {
+    "startTime": "2026-01-15T03:00:00Z",
+    "generation": 14068
+   },
+   {
+    "startTime": "2026-01-15T02:55:00Z",
+    "generation": 14184
+   },
+   {
+    "startTime": "2026-01-15T02:50:00Z",
+    "generation": 14312
+   },
+   {
+    "startTime": "2026-01-15T02:45:00Z",
+    "generation": 14193
+   },
+   {
+    "startTime": "2026-01-15T02:40:00Z",
+    "generation": 14141
+   },
+   {
+    "startTime": "2026-01-15T02:35:00Z",
+    "generation": 14142
+   },
+   {
+    "startTime": "2026-01-15T02:30:00Z",
+    "generation": 14241
+   },
+   {
+    "startTime": "2026-01-15T02:25:00Z",
+    "generation": 14391
+   },
+   {
+    "startTime": "2026-01-15T02:20:00Z",
+    "generation": 14516
+   },
+   {
+    "startTime": "2026-01-15T02:15:00Z",
+    "generation": 14546
+   },
+   {
+    "startTime": "2026-01-15T02:10:00Z",
+    "generation": 14552
+   },
+   {
+    "startTime": "2026-01-15T02:05:00Z",
+    "generation": 14595
+   },
+   {
+    "startTime": "2026-01-15T02:00:00Z",
+    "generation": 14601
+   },
+   {
+    "startTime": "2026-01-15T01:55:00Z",
+    "generation": 14597
+   },
+   {
+    "startTime": "2026-01-15T01:50:00Z",
+    "generation": 14602
+   },
+   {
+    "startTime": "2026-01-15T01:45:00Z",
+    "generation": 14604
+   },
+   {
+    "startTime": "2026-01-15T01:40:00Z",
+    "generation": 14460
+   },
+   {
+    "startTime": "2026-01-15T01:35:00Z",
+    "generation": 14391
+   },
+   {
+    "startTime": "2026-01-15T01:30:00Z",
+    "generation": 14443
+   },
+   {
+    "startTime": "2026-01-15T01:25:00Z",
+    "generation": 14282
+   },
+   {
+    "startTime": "2026-01-15T01:20:00Z",
+    "generation": 14171
+   },
+   {
+    "startTime": "2026-01-15T01:15:00Z",
+    "generation": 14122
+   },
+   {
+    "startTime": "2026-01-15T01:10:00Z",
+    "generation": 14142
+   },
+   {
+    "startTime": "2026-01-15T01:05:00Z",
+    "generation": 14247
+   },
+   {
+    "startTime": "2026-01-15T01:00:00Z",
+    "generation": 14233
+   },
+   {
+    "startTime": "2026-01-15T00:55:00Z",
+    "generation": 14141
+   },
+   {
+    "startTime": "2026-01-15T00:50:00Z",
+    "generation": 14159
+   },
+   {
+    "startTime": "2026-01-15T00:45:00Z",
+    "generation": 14247
+   },
+   {
+    "startTime": "2026-01-15T00:40:00Z",
+    "generation": 14337
+   },
+   {
+    "startTime": "2026-01-15T00:35:00Z",
+    "generation": 14486
+   },
+   {
+    "startTime": "2026-01-15T00:30:00Z",
+    "generation": 14493
+   },
+   {
+    "startTime": "2026-01-15T00:25:00Z",
+    "generation": 14544
+   },
+   {
+    "startTime": "2026-01-15T00:20:00Z",
+    "generation": 14528
+   },
+   {
+    "startTime": "2026-01-15T00:15:00Z",
+    "generation": 14566
+   },
+   {
+    "startTime": "2026-01-15T00:10:00Z",
+    "generation": 14612
+   },
+   {
+    "startTime": "2026-01-15T00:05:00Z",
+    "generation": 14686
+   },
+   {
+    "startTime": "2026-01-15T00:00:00Z",
+    "generation": 14674
+   }
+  ]
+ }
+}

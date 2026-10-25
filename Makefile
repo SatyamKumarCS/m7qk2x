@@ -1,5 +1,5 @@
 # Developer entry points. Run from the repo root.
-.PHONY: install lock data test lint format up
+.PHONY: install lock data notebook test lint format up
 
 BACKEND := backend
 FRONTEND := frontend
@@ -18,15 +18,20 @@ data: ## FR-1.5: download raw Elexon data, then build the processed parquet + qu
 	cd $(BACKEND) && .venv/bin/python -m scripts.fetch_data
 	cd $(BACKEND) && .venv/bin/python -m scripts.build_dataset
 
+notebook: ## Re-run the exploration notebook from a clean kernel and save outputs + figures in place
+	cd $(BACKEND) && .venv/bin/python -m scripts.run_notebook ../notebooks/01_exploration.ipynb
+
 test:
 	cd $(BACKEND) && .venv/bin/pytest -q
 
 lint:
-	cd $(BACKEND) && .venv/bin/ruff check . && .venv/bin/ruff format --check .
+	cd $(BACKEND) && .venv/bin/ruff check --config pyproject.toml . ../notebooks
+	cd $(BACKEND) && .venv/bin/ruff format --check --config pyproject.toml . ../notebooks
 	cd $(FRONTEND) && npm run lint && npm run format:check
 
 format:
-	cd $(BACKEND) && .venv/bin/ruff check --fix . && .venv/bin/ruff format .
+	cd $(BACKEND) && .venv/bin/ruff check --fix --config pyproject.toml . ../notebooks
+	cd $(BACKEND) && .venv/bin/ruff format --config pyproject.toml . ../notebooks
 	cd $(FRONTEND) && npm run format
 
 up:

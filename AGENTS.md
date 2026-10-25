@@ -51,6 +51,7 @@ make lock                      # re-pin backend deps from requirements*.in
 cd backend && .venv/bin/uvicorn app.main:app --reload --port 8000
 cd frontend && npm run dev     # :5173
 make data                      # fetch raw (gitignored) + build processed parquet/report (committed)
+make notebook                  # re-run notebooks/01_exploration.ipynb from a fresh kernel (outputs + docs/figures)
 make up                        # stub until the Docker ticket
 ```
 
