@@ -1,0 +1,107 @@
+{
+  "inputs": [
+    {
+      "file": "fuelhh_2026-01-01_2026-01-07.json",
+      "sha256": "00277158b5e298964cfb274ceb56236763d1dbf75c8ec572fea5c24602cbeee0"
+    },
+    {
+      "file": "fuelhh_2026-01-08_2026-01-14.json",
+      "sha256": "cd1d31eb1c3f920a76b8a3e13c8e1f11c1f2dbe77b8a567be7195907ede8d0fa"
+    },
+    {
+      "file": "fuelhh_2026-01-15_2026-01-21.json",
+      "sha256": "3ff8859551716d5dca7c972e8d4c34f297c6c5f4d0735ea9c8fcbead24f22244"
+    },
+    {
+      "file": "fuelhh_2026-01-22_2026-01-28.json",
+      "sha256": "2f31f1c8c67d41fc800f3eacb755e17e0805df2815dca34862852ef2d5c262bf"
+    },
+    {
+      "file": "fuelhh_2026-01-29_2026-02-01.json",
+      "sha256": "da91c3588741a7db72ada9ae86d9a37af1f5c4af65b84a08ca1269408fe0413a"
+    },
+    {
+      "file": "windfor_2025-12-29_2026-01-04.json",
+      "sha256": "10ee1d4137ed5d6fabe7ff4478b6d6baf9beb9aac67a5890b55a3a26447829da"
+    },
+    {
+      "file": "windfor_2026-01-05_2026-01-11.json",
+      "sha256": "cf38c0cc6d0b33ea659444d4a483b87964b570f8d82d1e9dfff00659f300ca60"
+    },
+    {
+      "file": "windfor_2026-01-12_2026-01-18.json",
+      "sha256": "05aba769ba3703987090414e800c008f92d6fda878c7d214174386d0ca6bcff7"
+    },
+    {
+      "file": "windfor_2026-01-19_2026-01-25.json",
+      "sha256": "f73146b52460da61fe44a3e79419d83bff0bfd1549475ae2dc70bc435d9400a1"
+    },
+    {
+      "file": "windfor_2026-01-26_2026-01-31.json",
+      "sha256": "6b2f958442e9a90866fab339351044a24d14e032e9ebd78f23ebc32b2e1c2ae7"
+    }
+  ],
+  "actuals": {
+    "rows": 1536,
+    "expected": 1536,
+    "missingSlots": [],
+    "duplicates": 0,
+    "revisionsCollapsed": 0,
+    "nonWindDropped": 0,
+    "nulls": 0,
+    "negatives": 0,
+    "spikes": 0,
+    "spikeTimes": [],
+    "startTimeRange": [
+      "2026-01-01T00:00:00Z",
+      "2026-02-01T23:30:00Z"
+    ],
+    "generationRangeMw": [
+      1695.0,
+      17805.0
+    ],
+    "resolutionMinutes": 30
+  },
+  "forecasts": {
+    "rows": 15775,
+    "runs": 272,
+    "runsPerPublishDay": {
+      "8": 34
+    },
+    "publishClockTimes": {
+      "02:30": 34,
+      "04:30": 34,
+      "07:30": 34,
+      "09:30": 34,
+      "11:30": 33,
+      "12:25": 1,
+      "15:30": 34,
+      "18:30": 34,
+      "22:30": 34
+    },
+    "duplicates": 0,
+    "conflictingDuplicates": 0,
+    "droppedPublishedAfterTarget": 4081,
+    "nulls": 0,
+    "negatives": 0,
+    "spikes": 0,
+    "spikeTimes": [],
+    "publishTimeRange": [
+      "2025-12-29T02:30:00Z",
+      "2026-01-31T22:30:00Z"
+    ],
+    "startTimeRange": [
+      "2025-12-29T03:00:00Z",
+      "2026-02-02T21:00:00Z"
+    ],
+    "horizonRangeH": [
+      0.5,
+      66.5
+    ],
+    "generationRangeMw": [
+      2292.0,
+      21353.0
+    ],
+    "resolutionMinutes": 60
+  }
+}

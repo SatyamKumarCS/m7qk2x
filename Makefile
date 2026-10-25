@@ -14,8 +14,9 @@ lock: ## Re-pin every backend dependency (direct + transitive) from requirements
 	cd $(BACKEND) && uv pip compile requirements.in --universal --python-version 3.11 -o requirements.txt -q
 	cd $(BACKEND) && uv pip compile requirements-dev.in --universal --python-version 3.11 -o requirements-dev.txt -q
 
-data:
-	@echo "make data: not yet implemented (Fetch raw Elexon data + Build processed dataset tickets)"
+data: ## FR-1.5: download raw Elexon data, then build the processed parquet + quality report
+	cd $(BACKEND) && .venv/bin/python -m scripts.fetch_data
+	cd $(BACKEND) && .venv/bin/python -m scripts.build_dataset
 
 test:
 	cd $(BACKEND) && .venv/bin/pytest -q
