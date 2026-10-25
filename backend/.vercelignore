@@ -1,0 +1,13 @@
+# Not uploaded by `vercel deploy` (the CLI does not read .gitignore). The function needs only
+# app/, data/processed/ and requirements.txt; vercel.json excludeFiles trims the bundle as well.
+.venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+.env
+.env.*
+tests
+scripts
+data/raw
+.DS_Store

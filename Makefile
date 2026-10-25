@@ -3,36 +3,40 @@
 
 BACKEND := backend
 FRONTEND := frontend
+# Vercel's Python runtime starts at 3.12 (Q-15, ADR 0007); keep in step with backend/.python-version.
+PYTHON_VERSION := 3.12
+# Override to use another venv, e.g. `make test VENV=/path/to/venv`.
 VENV := $(BACKEND)/.venv
+BIN := $(abspath $(VENV))/bin
 
-install: ## Python 3.11 venv (via uv) + pinned backend deps, then frontend deps from the lockfile
-	uv venv --python 3.11 $(VENV)
-	uv pip install --python $(VENV)/bin/python -r $(BACKEND)/requirements-dev.txt
+install: ## Fresh Python 3.12 venv (via uv; replaces an existing one) + pinned backend deps, then frontend deps
+	uv venv --clear --python $(PYTHON_VERSION) $(VENV)
+	uv pip install --python $(BIN)/python -r $(BACKEND)/requirements-dev.txt
 	cd $(FRONTEND) && npm ci
 
 lock: ## Re-pin every backend dependency (direct + transitive) from requirements*.in
-	cd $(BACKEND) && uv pip compile requirements.in --universal --python-version 3.11 -o requirements.txt -q
-	cd $(BACKEND) && uv pip compile requirements-dev.in --universal --python-version 3.11 -o requirements-dev.txt -q
+	cd $(BACKEND) && uv pip compile requirements.in --universal --python-version $(PYTHON_VERSION) -o requirements.txt -q
+	cd $(BACKEND) && uv pip compile requirements-dev.in --universal --python-version $(PYTHON_VERSION) -o requirements-dev.txt -q
 
 data: ## FR-1.5: download raw Elexon data, then build the processed parquet + quality report
-	cd $(BACKEND) && .venv/bin/python -m scripts.fetch_data
-	cd $(BACKEND) && .venv/bin/python -m scripts.build_dataset
+	cd $(BACKEND) && $(BIN)/python -m scripts.fetch_data
+	cd $(BACKEND) && $(BIN)/python -m scripts.build_dataset
 
 notebook: ## Re-run every notebook from a clean kernel and save outputs + figures in place
-	cd $(BACKEND) && for nb in ../notebooks/*.ipynb; do .venv/bin/python -m scripts.run_notebook $$nb || exit 1; done
+	cd $(BACKEND) && for nb in ../notebooks/*.ipynb; do $(BIN)/python -m scripts.run_notebook $$nb || exit 1; done
 
 test: ## Backend pytest, then frontend Vitest (run in Asia/Kolkata to catch date shifts)
-	cd $(BACKEND) && .venv/bin/pytest -q
+	cd $(BACKEND) && $(BIN)/pytest -q
 	cd $(FRONTEND) && npm test
 
 lint:
-	cd $(BACKEND) && .venv/bin/ruff check --config pyproject.toml . ../notebooks
-	cd $(BACKEND) && .venv/bin/ruff format --check --config pyproject.toml . ../notebooks
+	cd $(BACKEND) && $(BIN)/ruff check --config ruff.toml . ../notebooks
+	cd $(BACKEND) && $(BIN)/ruff format --check --config ruff.toml . ../notebooks
 	cd $(FRONTEND) && npm run lint && npm run format:check
 
 format:
-	cd $(BACKEND) && .venv/bin/ruff format --config pyproject.toml . ../notebooks
-	cd $(BACKEND) && .venv/bin/ruff check --fix --config pyproject.toml . ../notebooks
+	cd $(BACKEND) && $(BIN)/ruff format --config ruff.toml . ../notebooks
+	cd $(BACKEND) && $(BIN)/ruff check --fix --config ruff.toml . ../notebooks
 	cd $(FRONTEND) && npm run format
 
 up:

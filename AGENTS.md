@@ -75,7 +75,7 @@ Decision tickets (`wayfinder:research|grilling|task`) follow the [Wayfinder](doc
 ## Commands
 
 ```sh
-make install                   # Python 3.11 venv via uv + pinned deps; npm ci
+make install                   # fresh Python 3.12 venv via uv (replaces .venv) + pinned deps; npm ci
 make test                      # pytest (backend) + Vitest (frontend, TZ=Asia/Kolkata)
 make lint                      # ruff check + format check; eslint + prettier check
 make format                    # apply ruff + prettier fixes
@@ -87,7 +87,7 @@ make notebook                  # re-run notebooks/01_exploration.ipynb from a fr
 make up                        # stub until the Docker ticket
 ```
 
-Python deps: edit `backend/requirements*.in`, then run `make lock` (never hand-edit the `.txt` files). Frontend deps install exact versions (`.npmrc` sets `save-exact`).
+Python deps: edit `backend/requirements*.in`, then run `make lock` (never hand-edit the `.txt` files). Python is **3.12** (Q-15: Vercel has no 3.11; this departs from PRD §10). Ruff and pytest settings live in `backend/ruff.toml` and `backend/pytest.ini`. **Never add a `backend/pyproject.toml`**: Vercel would install from it and ignore `requirements.txt`. Deployment config: `backend/vercel.json` + `.vercelignore` (bundle excludes tests, scripts, raw data) and `frontend/vercel.json` (SPA rewrite); see [ADR 0007](docs/adr/0007-hosting.md). Frontend deps install exact versions (`.npmrc` sets `save-exact`).
 
 ## Library docs
 

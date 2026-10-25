@@ -1,0 +1,6 @@
+# Ruff settings (moved from pyproject.toml: a pyproject.toml would make Vercel ignore requirements.txt).
+target-version = "py312"
+line-length = 100
+
+[lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "ANN"]
