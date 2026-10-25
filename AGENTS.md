@@ -2,13 +2,13 @@
 
 Wind Forecast Monitor: a React + FastAPI web app that shows a GB day-ahead power buyer the wind forecast they had at decision time (09:20 UK on D-1) and how wrong it usually is. Data: Elexon FUELHH (WIND) and WINDFOR, for purchase decisions made in January 2026.
 
-**Status:** planning. No application code exists yet. The first build ticket is [Scaffold repo skeleton](issues/002-scaffold-repo-skeleton.md).
+**Status:** scaffold in place (stub API, placeholder UI, tooling); no features yet. The next tickets are on the frontier in [issues/README.md](issues/README.md).
 
 ## Where things live (one fact, one place)
 
 | Doc | Holds | Precedence |
 |---|---|---|
-| [Brief](<REint Full Stack SWE challenge v4.1 Shared - intern.md>) | Client requirements and deliverables | 1 (wins every conflict) |
+| [Brief](<REint Full Stack SWE challenge v4.1 Shared - intern.md>) (local only, gitignored per Q-8) | Client requirements and deliverables | 1 (wins every conflict) |
 | [PRD](<PRD — Wind Forecast Monitor (UK Day-Ahead Procurement).md>) | What and why: requirements FR/UC/E-n, NFRs, milestones | 2 |
 | [ADRs](docs/adr/README.md) | Why a choice was made | 3 |
 | [Spec](docs/spec.md) | How: contracts, signatures, constants, traceability | 4 |
@@ -40,13 +40,20 @@ Decision tickets (`wayfinder:research|grilling|task`) follow the [Wayfinder](doc
 - No secrets, no write endpoints. Validate every query param (HTTP 422 on bad input).
 - The README must declare which AI tools were used (brief requirement).
 
-## Commands (available once the scaffold ticket is done)
+## Commands
 
 ```sh
-make data                      # fetch + build processed data (offline)
+make install                   # Python 3.11 venv via uv + pinned deps; npm ci
 make test                      # pytest (backend)
-docker compose up --build      # app on :5173, API on :8000
+make lint                      # ruff check + format check; eslint + prettier check
+make format                    # apply ruff + prettier fixes
+make lock                      # re-pin backend deps from requirements*.in
+cd backend && .venv/bin/uvicorn app.main:app --reload --port 8000
+cd frontend && npm run dev     # :5173
+make data / make up            # stubs until the pipeline / Docker tickets
 ```
+
+Python deps: edit `backend/requirements*.in`, then run `make lock` (never hand-edit the `.txt` files). Frontend deps install exact versions (`.npmrc` sets `save-exact`).
 
 ## Library docs
 

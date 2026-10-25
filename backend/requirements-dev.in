@@ -1,0 +1,6 @@
+# Test and lint tooling, layered on the runtime lock. Compile with `make lock`.
+-c requirements.txt
+-r requirements.in
+pytest==9.1.1
+httpx2==2.16.0  # Starlette 1.x TestClient deprecates httpx in favour of httpx2
+ruff==0.17.2

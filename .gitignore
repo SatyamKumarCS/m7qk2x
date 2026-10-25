@@ -1,0 +1,27 @@
+# Q-8: the client brief stays local and out of the public repo (docs/assumptions.md)
+/REint Full Stack SWE challenge v4.1 Shared - intern.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Editors / OS / logs
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.log
