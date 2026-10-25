@@ -12,9 +12,9 @@ import { CUTOFF_PRESETS, DEFAULT_CUTOFF, SCOPE } from './constants.ts'
 import { useAsync } from './hooks/useAsync.ts'
 import { type FilterBounds, useFilters } from './hooks/useFilters.ts'
 import { navigate, useLocation } from './hooks/useLocation.ts'
+import { AccuracyPage } from './pages/AccuracyPage.tsx'
 import { DecisionPage } from './pages/DecisionPage.tsx'
 import { ExplorerPage } from './pages/ExplorerPage.tsx'
-import { AccuracyPage } from './pages/Placeholders.tsx'
 
 const TABS: Tab[] = [
   { path: '/', label: 'Decision' },
@@ -57,7 +57,7 @@ export default function App() {
         {pathname === '/explorer' ? (
           <ExplorerPage filters={filters} bounds={bounds} onChange={setFilters} />
         ) : pathname === '/accuracy' ? (
-          <AccuracyPage filters={filters} />
+          <AccuracyPage filters={filters} meta={meta.state} onRetryMeta={meta.retry} />
         ) : (
           <DecisionPage filters={filters} bounds={bounds} onChange={setFilters} />
         )}

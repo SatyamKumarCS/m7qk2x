@@ -572,6 +572,80 @@ h3 {
   border-radius: 2px;
 }
 
+/* ---- Accuracy report ---- */
+.kpis--six {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.kpi--bias {
+  border-left: 4px solid #d62728;
+}
+
+.notice {
+  margin: 0 0 var(--gap);
+  padding: 8px 12px;
+  background: #fff8e1;
+  border: 1px solid #f0c36d;
+  border-radius: var(--radius);
+}
+
+.findings {
+  margin: 0 0 var(--gap);
+}
+
+.findings ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.findings li + li {
+  margin-top: 4px;
+}
+
+.breakdowns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: var(--gap);
+  margin-bottom: var(--gap);
+}
+
+.breakdown {
+  margin: 0;
+  min-width: 0;
+}
+
+.breakdown figcaption h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.breakdown figcaption p {
+  margin: 2px 0 8px;
+  font-size: var(--font-small);
+}
+
+.data-table .is-low-sample {
+  color: var(--color-muted);
+}
+
+.quality {
+  margin-top: calc(var(--gap) * 1.5);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--color-border);
+}
+
+.quality__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--gap);
+}
+
+.quality caption {
+  text-align: left;
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+
 /* ---- About panel ---- */
 .overlay {
   position: fixed;
