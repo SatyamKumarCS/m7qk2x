@@ -2,7 +2,37 @@
 
 Wind Forecast Monitor: a React + FastAPI web app that shows a GB day-ahead power buyer the wind forecast they had at decision time (09:20 UK on D-1) and how wrong it usually is. Data: Elexon FUELHH (WIND) and WINDFOR, for purchase decisions made in January 2026.
 
-**Status:** scaffold in place (stub API, placeholder UI, tooling); no features yet. The next tickets are on the frontier in [issues/README.md](issues/README.md).
+**Status:** these are implemented:
+
+- the offline data pipeline;
+- the selection, metrics and band engines;
+- the read-only API;
+- all three views: Decision, Forecast vs actual (Explorer) and Accuracy report.
+
+Docker, production deployment (Vercel chosen, but the owner deploys), and the submission README and video are still to do. The next tickets are on the frontier in [issues/README.md](issues/README.md).
+
+## Architecture at a glance
+
+Details are in [spec](docs/spec.md) §1, §5 and §6.
+
+- **Offline data** (`backend/scripts/`, run by `make data`): `fetch_data.py` downloads raw Elexon JSON, which is gitignored. `build_dataset.py` writes the processed parquet and `quality_report.json`, both committed. Nothing calls Elexon at runtime.
+- **Core logic** (`backend/app/`, pure pandas functions):
+  - `selection.py` picks the decision-time forecast;
+  - `metrics.py` computes errors, metrics, breakdowns and day summaries;
+  - `band.py` builds the empirical planning band.
+
+  The constants live in `config.py`.
+- **API** (`backend/app/`): `main.py` (FastAPI app, CORS, logging) → `routes.py` (six GET endpoints, query validation, 422s) → `service.py` (cached responses built only from the core modules, plus the publish-time invariant). Supporting modules:
+  - `data_store.py` loads the parquet once;
+  - `schemas.py` holds exact-key Pydantic models;
+  - `about.py` holds the assumptions and sources text.
+- **Frontend** (`frontend/src/`, React 19 + Vite + Recharts):
+  - `App.tsx` is the shell: tabs, a History-API router, URL-driven filters (`hooks/useFilters.ts`) and the server status.
+  - `api/` holds the typed client, with `types.ts` mirroring spec §5.
+  - `pages/` holds one page per view.
+  - `components/` holds the charts and shared UI.
+  - `utils/` holds pure, tested logic: time, formatting, and per-view helpers.
+  - `test/` holds the API fixtures.
 
 ## Where things live (one fact, one place)
 
