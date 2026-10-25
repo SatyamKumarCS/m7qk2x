@@ -30,8 +30,8 @@ lint:
 	cd $(FRONTEND) && npm run lint && npm run format:check
 
 format:
-	cd $(BACKEND) && .venv/bin/ruff check --fix --config pyproject.toml . ../notebooks
 	cd $(BACKEND) && .venv/bin/ruff format --config pyproject.toml . ../notebooks
+	cd $(BACKEND) && .venv/bin/ruff check --fix --config pyproject.toml . ../notebooks
 	cd $(FRONTEND) && npm run format
 
 up:
