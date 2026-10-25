@@ -8,13 +8,15 @@ Wind Forecast Monitor: a React + FastAPI web app that shows a GB day-ahead power
 
 | Doc | Holds | Precedence |
 |---|---|---|
-| [Brief](<REint Full Stack SWE challenge v4.1 Shared - intern.md>) (local only, gitignored per Q-8) | Client requirements and deliverables | 1 (wins every conflict) |
-| [PRD](<PRD — Wind Forecast Monitor (UK Day-Ahead Procurement).md>) | What and why: requirements FR/UC/E-n, NFRs, milestones | 2 |
+| Brief (kept outside the repo by the owner) | Client requirements and deliverables | 1 (wins every conflict) |
+| PRD (kept outside the repo by the owner) | What and why: requirements FR/UC/E-n, NFRs, milestones | 2 |
 | [ADRs](docs/adr/README.md) | Why a choice was made | 3 |
 | [Spec](docs/spec.md) | How: contracts, signatures, constants, traceability | 4 |
 | [Issues](issues/README.md) | Units of work, dependency-ordered, with acceptance criteria | 5 |
 | [Map](docs/map.md) | Where the effort stands: destination, decisions, fog, scope | index only |
 | [Assumptions and open questions](docs/assumptions.md) | Working assumptions, unresolved questions, PRD review notes | – |
+
+The brief and the PRD were removed from the repo by the owner on 2026-10-25. Cite them by section and ID (PRD §5.6, FR-3.4, E-11); don't recreate or re-add them. If you need wording from them, ask the owner.
 
 Cite a doc instead of copying it. If two docs disagree, the higher one wins. Fix the lower one, or open a question in `docs/assumptions.md`.
 
