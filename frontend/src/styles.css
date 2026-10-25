@@ -477,6 +477,101 @@ h3 {
   text-align: left;
 }
 
+/* ---- Explorer view ---- */
+.presets {
+  margin-bottom: var(--gap);
+}
+
+.presets .muted {
+  margin: 6px 0 0;
+}
+
+.segmented--wrap {
+  flex-wrap: wrap;
+}
+
+.segmented--wrap .segmented__option {
+  border-right: 1px solid var(--color-border);
+}
+
+.segmented__sub {
+  font-size: var(--font-small);
+  opacity: 0.85;
+}
+
+.explorer-charts .chart + .chart {
+  margin-top: 8px;
+}
+
+.chart-tooltip {
+  padding: 8px 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  font-size: var(--font-small);
+}
+
+.chart-tooltip__time {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+
+.chart-tooltip dl {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2px 12px;
+  margin: 0;
+}
+
+.chart-tooltip dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px var(--gap);
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--font-small);
+  color: var(--color-muted);
+}
+
+.swatch {
+  display: inline-block;
+  width: 18px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.swatch--line {
+  border-top: 3px solid;
+}
+
+.swatch--dashed {
+  border-top: 3px dashed;
+}
+
+.swatch--gap {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-muted) 35%,
+    transparent 35% 65%,
+    var(--color-muted) 65%
+  );
+}
+
+.swatch--box {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
 /* ---- About panel ---- */
 .overlay {
   position: fixed;

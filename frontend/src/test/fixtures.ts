@@ -115,3 +115,51 @@ export function seriesFixture(o: DayOptions = {}): TimeseriesResponse {
     },
   }
 }
+
+export interface RangeOptions {
+  cutoff?: string
+  windByDay?: Record<string, number> // base actual MW per day (default 9,000)
+  missingActual?: string[] // ISO half-hour start times with no actual
+  missingForecast?: string[] // ISO hour start times with no forecast
+}
+
+/** Half-hourly timeseries over [start, end] (UK = UTC in January), spec §5 shape. */
+export function seriesRange(start: string, end: string, o: RangeOptions = {}): TimeseriesResponse {
+  const points: TimeseriesResponse['points'] = []
+  for (
+    let t = Date.parse(`${start}T00:00:00Z`);
+    t < Date.parse(`${end}T00:00:00Z`) + 86_400_000;
+    t += 1_800_000
+  ) {
+    const iso = new Date(t).toISOString().replace('.000Z', 'Z')
+    const day = iso.slice(0, 10)
+    const evaluated = iso.slice(14, 16) === '00'
+    const actual = o.missingActual?.includes(iso)
+      ? null
+      : (o.windByDay?.[day] ?? 9_000) + ((t / 1_800_000) % 7)
+    const forecast = evaluated && !o.missingForecast?.includes(iso) ? 10_000 : null
+    points.push({
+      startTime: iso,
+      actual,
+      forecast,
+      publishTime: forecast === null ? null : `${day}T07:30:00Z`,
+      horizonHours: forecast === null ? null : 16.5,
+      error:
+        forecast === null || actual === null ? null : Math.round((forecast - actual) * 10) / 10,
+      evaluated,
+    })
+  }
+  const hours = points.filter((p) => p.evaluated)
+  return {
+    start,
+    end,
+    cutoff: o.cutoff ?? '09:20',
+    timezone: 'Europe/London',
+    points,
+    counts: {
+      n: hours.filter((p) => p.forecast !== null && p.actual !== null).length,
+      missingForecast: hours.filter((p) => p.forecast === null).length,
+      missingActual: hours.filter((p) => p.actual === null).length,
+    },
+  }
+}

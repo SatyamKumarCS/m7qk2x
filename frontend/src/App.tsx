@@ -13,7 +13,8 @@ import { useAsync } from './hooks/useAsync.ts'
 import { type FilterBounds, useFilters } from './hooks/useFilters.ts'
 import { navigate, useLocation } from './hooks/useLocation.ts'
 import { DecisionPage } from './pages/DecisionPage.tsx'
-import { AccuracyPage, ExplorerPage } from './pages/Placeholders.tsx'
+import { ExplorerPage } from './pages/ExplorerPage.tsx'
+import { AccuracyPage } from './pages/Placeholders.tsx'
 
 const TABS: Tab[] = [
   { path: '/', label: 'Decision' },
@@ -54,7 +55,7 @@ export default function App() {
       <ControlBar filters={filters} bounds={bounds} presets={presets} onChange={setFilters} />
       <main className="content">
         {pathname === '/explorer' ? (
-          <ExplorerPage filters={filters} />
+          <ExplorerPage filters={filters} bounds={bounds} onChange={setFilters} />
         ) : pathname === '/accuracy' ? (
           <AccuracyPage filters={filters} />
         ) : (

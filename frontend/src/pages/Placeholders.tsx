@@ -1,5 +1,5 @@
-// Route targets for the Explorer and Accuracy report views. Their content arrives with those
-// tickets; until then each shows the filters it will use.
+// Route target for the Accuracy report view. Its content arrives with that ticket; until then
+// it shows the filters it will use.
 
 import { EmptyState } from '../components/States.tsx'
 import type { Filters } from '../hooks/useFilters.ts'
@@ -14,16 +14,6 @@ function Page({ title, intro, uses }: { title: string; intro: string; uses: stri
         <p className="muted">It will use: {uses}</p>
       </EmptyState>
     </section>
-  )
-}
-
-export function ExplorerPage({ filters }: { filters: Filters }) {
-  return (
-    <Page
-      title="Forecast vs actual"
-      intro="Decision-time forecast against actual wind over a date range."
-      uses={`${formatDate(filters.start)} – ${formatDate(filters.end)}, cutoff ${filters.cutoff} UK time.`}
-    />
   )
 }
 
