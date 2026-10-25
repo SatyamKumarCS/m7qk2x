@@ -1,5 +1,5 @@
-// Route targets for the three views. Their content arrives with the Decision, Explorer and
-// Accuracy report tickets; until then each shows the filters it will use.
+// Route targets for the Explorer and Accuracy report views. Their content arrives with those
+// tickets; until then each shows the filters it will use.
 
 import { EmptyState } from '../components/States.tsx'
 import type { Filters } from '../hooks/useFilters.ts'
@@ -14,16 +14,6 @@ function Page({ title, intro, uses }: { title: string; intro: string; uses: stri
         <p className="muted">It will use: {uses}</p>
       </EmptyState>
     </section>
-  )
-}
-
-export function DecisionPage({ filters }: { filters: Filters }) {
-  return (
-    <Page
-      title="Decision view"
-      intro="The wind forecast you had at the cutoff for one delivery day, with a planning band."
-      uses={`delivery day ${formatDate(filters.date)}, cutoff ${filters.cutoff} UK time, ${filters.band}% band.`}
-    />
   )
 }
 
