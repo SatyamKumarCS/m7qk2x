@@ -46,7 +46,7 @@ Decision tickets (`wayfinder:research|grilling|task`) follow the [Wayfinder](doc
 
 ```sh
 make install                   # Python 3.11 venv via uv + pinned deps; npm ci
-make test                      # pytest (backend)
+make test                      # pytest (backend) + Vitest (frontend, TZ=Asia/Kolkata)
 make lint                      # ruff check + format check; eslint + prettier check
 make format                    # apply ruff + prettier fixes
 make lock                      # re-pin backend deps from requirements*.in

@@ -21,8 +21,9 @@ data: ## FR-1.5: download raw Elexon data, then build the processed parquet + qu
 notebook: ## Re-run every notebook from a clean kernel and save outputs + figures in place
 	cd $(BACKEND) && for nb in ../notebooks/*.ipynb; do .venv/bin/python -m scripts.run_notebook $$nb || exit 1; done
 
-test:
+test: ## Backend pytest, then frontend Vitest (run in Asia/Kolkata to catch date shifts)
 	cd $(BACKEND) && .venv/bin/pytest -q
+	cd $(FRONTEND) && npm test
 
 lint:
 	cd $(BACKEND) && .venv/bin/ruff check --config pyproject.toml . ../notebooks
