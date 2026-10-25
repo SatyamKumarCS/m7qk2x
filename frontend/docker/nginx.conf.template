@@ -1,0 +1,25 @@
+# Serves the built SPA and forwards /api to the backend over the compose network, so the browser
+# only ever talks to this origin (no CORS needed). The official nginx image fills ${PORT} and
+# ${API_UPSTREAM} from the environment at start-up.
+server {
+    listen ${PORT};
+    root /usr/share/nginx/html;
+
+    location /api/ {
+        proxy_pass ${API_UPSTREAM};
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /assets/ {
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        try_files $uri =404;
+    }
+
+    # Client-side routes (/explorer, /accuracy) fall back to the app shell.
+    location / {
+        add_header Cache-Control "no-cache";
+        try_files $uri /index.html;
+    }
+}

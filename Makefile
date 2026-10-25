@@ -1,5 +1,5 @@
 # Developer entry points. Run from the repo root.
-.PHONY: install lock data notebook test lint format up
+.PHONY: install lock data notebook test lint format up down
 
 BACKEND := backend
 FRONTEND := frontend
@@ -39,7 +39,8 @@ format:
 	cd $(BACKEND) && $(BIN)/ruff check --fix --config ruff.toml . ../notebooks
 	cd $(FRONTEND) && npm run format
 
-up:
-	@echo "make up: not yet implemented (Docker and production deploy ticket). Until then:"
-	@echo "  cd backend && .venv/bin/uvicorn app.main:app --reload --port 8000"
-	@echo "  cd frontend && npm run dev"
+up: ## Build and run both services with Docker: app on :5173, API on :8000 (APP_PORT/API_PORT to move them)
+	docker compose up --build
+
+down:
+	docker compose down

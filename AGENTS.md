@@ -84,7 +84,7 @@ cd backend && .venv/bin/uvicorn app.main:app --reload --port 8000
 cd frontend && npm run dev     # :5173
 make data                      # fetch raw (gitignored) + build processed parquet/report (committed)
 make notebook                  # re-run notebooks/01_exploration.ipynb from a fresh kernel (outputs + docs/figures)
-make up                        # stub until the Docker ticket
+make up                        # docker compose up --build: app :5173, API :8000 (make down to stop)
 ```
 
 Python deps: edit `backend/requirements*.in`, then run `make lock` (never hand-edit the `.txt` files). Python is **3.12** (Q-15: Vercel has no 3.11; this departs from PRD §10). Ruff and pytest settings live in `backend/ruff.toml` and `backend/pytest.ini`. **Never add a `backend/pyproject.toml`**: Vercel would install from it and ignore `requirements.txt`. Deployment config: `backend/vercel.json` + `.vercelignore` (bundle excludes tests, scripts, raw data) and `frontend/vercel.json` (SPA rewrite); see [ADR 0007](docs/adr/0007-hosting.md). Frontend deps install exact versions (`.npmrc` sets `save-exact`).

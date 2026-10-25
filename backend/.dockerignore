@@ -1,8 +1,13 @@
+# Keep the build context small and secret-free: the image copies only requirements.txt, app/ and
+# data/processed/ (see Dockerfile).
 .venv
-__pycache__
-*.py[cod]
-.pytest_cache
-.ruff_cache
-.env
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/.ruff_cache
+**/.env
+**/.env.*
 tests
+scripts
 data/raw
+**/.DS_Store

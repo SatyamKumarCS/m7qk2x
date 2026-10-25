@@ -1,0 +1,34 @@
+# Local run of the whole app (PRD §12.1, Issue 016): `docker compose up --build`, then open
+# http://localhost:5173 (app) and http://localhost:8000/api/health (API). Production is Vercel.
+# Host ports can be moved if they are taken: APP_PORT=5180 API_PORT=8010 docker compose up --build
+name: wind-forecast-monitor
+
+services:
+  backend:
+    build: ./backend
+    environment:
+      PORT: "8000"
+      # Only needed when the frontend calls the API directly (VITE_API_URL set); the default
+      # setup goes through the frontend's /api proxy and is same-origin.
+      CORS_ORIGINS: http://localhost:${APP_PORT:-5173}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    read_only: true # E-26: nothing is written at runtime
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: "" # same origin: nginx proxies /api to the backend service
+    environment:
+      PORT: "8080"
+      API_UPSTREAM: http://backend:8000
+    ports:
+      - "${APP_PORT:-5173}:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
