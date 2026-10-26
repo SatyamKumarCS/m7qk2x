@@ -5,6 +5,7 @@
 
 import { useState } from 'react'
 import {
+  Area,
   Bar,
   type BarShapeProps,
   Brush,
@@ -55,7 +56,7 @@ function tickLabel(t: number, short: boolean): string {
 
 function ErrorShape(props: BarShapeProps) {
   const value = (props.payload as ExplorerRow).error ?? 0
-  return <Rectangle {...props} fill={value > 0 ? COLORS.over : COLORS.under} />
+  return <Rectangle {...props} radius={2} fill={value > 0 ? COLORS.over : COLORS.under} />
 }
 
 function RowTooltip({
@@ -98,9 +99,16 @@ export function ExplorerChart({ rows, downsampled }: Props) {
       tickFormatter={(t: number) => tickLabel(t, short)}
       fontSize={13}
       hide={hide}
+      tickLine={false}
+      axisLine={{ stroke: 'var(--chart-axis)' }}
     />
   )
-  const tooltip = <Tooltip content={(p) => <RowTooltip {...p} downsampled={downsampled} />} />
+  const tooltip = (
+    <Tooltip
+      cursor={{ stroke: 'var(--chart-accent)', strokeDasharray: '3 3' }}
+      content={(p) => <RowTooltip {...p} downsampled={downsampled} />}
+    />
+  )
 
   return (
     <div className="explorer-charts">
@@ -115,16 +123,30 @@ export function ExplorerChart({ rows, downsampled }: Props) {
             syncId={SYNC}
             margin={{ top: 8, right: 16, bottom: 0, left: 8 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e4e7eb" />
+            <CartesianGrid strokeDasharray="2 4" stroke="var(--chart-grid)" vertical={false} />
             {xAxis()}
-            <YAxis tickFormatter={(v: number) => formatPower(v)} width={72} fontSize={13} />
+            <YAxis
+              tickFormatter={(v: number) => formatPower(v)}
+              width={72}
+              fontSize={13}
+              tickLine={false}
+              axisLine={false}
+            />
             {tooltip}
-            <Line
+            <defs>
+              <linearGradient id="actual-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={COLORS.actual} stopOpacity={0.3} />
+                <stop offset="100%" stopColor={COLORS.actual} stopOpacity={0.02} />
+              </linearGradient>
+            </defs>
+            <Area
               dataKey="actual"
               name="Actual (metered)"
               stroke={COLORS.actual}
-              strokeWidth={2}
+              strokeWidth={2.5}
+              fill="url(#actual-fill)"
               dot={false}
+              activeDot={{ r: 5, strokeWidth: 2, stroke: 'var(--color-surface)' }}
               connectNulls={false}
               isAnimationActive={false}
             />
@@ -132,7 +154,7 @@ export function ExplorerChart({ rows, downsampled }: Props) {
               dataKey="forecastLine"
               name="Forecast at cutoff"
               stroke={COLORS.forecast}
-              strokeWidth={2}
+              strokeWidth={2.5}
               strokeDasharray="6 3"
               dot={false}
               connectNulls={false}
@@ -141,7 +163,8 @@ export function ExplorerChart({ rows, downsampled }: Props) {
             <Brush
               dataKey="t"
               height={26}
-              stroke="#1f6feb"
+              stroke="var(--chart-accent)"
+              fill="var(--color-surface-2)"
               tickFormatter={(t: number) => formatDate(ukDateOf(iso(t))).replace(/ \d{4}$/, '')}
               onChange={(range) => {
                 if (range.startIndex !== undefined && range.endIndex !== undefined)
@@ -162,11 +185,17 @@ export function ExplorerChart({ rows, downsampled }: Props) {
             syncId={SYNC}
             margin={{ top: 8, right: 16, bottom: 0, left: 8 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e4e7eb" />
+            <CartesianGrid strokeDasharray="2 4" stroke="var(--chart-grid)" vertical={false} />
             {xAxis()}
-            <YAxis tickFormatter={(v: number) => formatSignedPower(v)} width={72} fontSize={13} />
+            <YAxis
+              tickFormatter={(v: number) => formatSignedPower(v)}
+              width={72}
+              fontSize={13}
+              tickLine={false}
+              axisLine={false}
+            />
             {tooltip}
-            <ReferenceLine y={0} stroke="#52606d" />
+            <ReferenceLine y={0} stroke="var(--color-muted)" />
             <Bar
               dataKey="error"
               name="Error (forecast − actual)"
@@ -176,7 +205,7 @@ export function ExplorerChart({ rows, downsampled }: Props) {
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-      <ul className="legend" aria-label="Chart key">
+      <ul className="legend legend--chips" aria-label="Chart key">
         <li>
           <span className="swatch swatch--line" style={{ borderColor: COLORS.actual }} /> Actual
           (metered)

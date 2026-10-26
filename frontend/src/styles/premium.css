@@ -1,0 +1,356 @@
+/* Premium layer: chart cards and chips, data tables with inline bars, the accuracy overview and
+   section headings. Loaded last so it refines the base components. */
+
+/* ---- chart legend as chips ---- */
+.legend--chips {
+  gap: 8px;
+}
+
+.legend--chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.legend--chips .swatch {
+  margin-right: 0;
+}
+
+.chart-card .legend {
+  margin-top: 12px;
+}
+
+.chart-tooltip .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.chart {
+  background:
+    linear-gradient(180deg, rgb(237 246 240 / 70%), transparent 120px), var(--color-surface);
+}
+
+/* ---- tables ---- */
+.table-toggle {
+  padding: 0;
+  overflow: hidden;
+}
+
+.table-toggle summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  list-style: none;
+  user-select: none;
+}
+
+.table-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.table-toggle summary::before {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentcolor;
+  border-bottom: 2px solid currentcolor;
+  transform: rotate(-45deg);
+  transition: transform 0.25s var(--ease);
+}
+
+.table-toggle[open] summary::before {
+  transform: rotate(45deg);
+}
+
+.table-toggle[open] summary {
+  margin: 0;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+.table-wrap {
+  max-height: 460px;
+  overflow: auto;
+}
+
+.table-wrap .data-table {
+  max-width: none;
+  margin: 0;
+}
+
+.data-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.data-table thead th {
+  z-index: 1;
+  background: var(--green-950);
+  color: rgb(255 255 255 / 85%);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 0;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: rgb(245 247 241 / 70%);
+}
+
+.data-table tbody tr:hover {
+  background: var(--green-100);
+}
+
+.data-table tbody th[scope='row'] {
+  font-weight: 600;
+  color: var(--green-900);
+}
+
+.data-table tbody tr:last-child th,
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* quality tables sit directly in the page, not in a scroll wrapper */
+.quality__grid .data-table {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.quality__grid .data-table caption {
+  padding: 0 2px 10px;
+  color: var(--color-text);
+}
+
+/* inline bar behind a number */
+.cell-bar {
+  position: relative;
+  min-width: 130px;
+}
+
+.cell-bar__fill {
+  position: absolute;
+  inset: 8px 8px 8px auto;
+  max-width: calc(100% - 16px);
+  border-radius: 6px;
+  background: linear-gradient(270deg, rgb(26 92 69 / 26%), rgb(26 92 69 / 6%));
+}
+
+.cell-bar__fill--forecast {
+  background: linear-gradient(270deg, rgb(255 127 14 / 30%), rgb(255 127 14 / 6%));
+}
+
+.cell-bar__text {
+  position: relative;
+  font-weight: 600;
+}
+
+.is-over {
+  color: #b42318;
+  font-weight: 600;
+}
+
+.is-under {
+  color: #175a8a;
+  font-weight: 600;
+}
+
+.pill {
+  display: inline-block;
+  min-width: 72px;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-2);
+  font-weight: 600;
+  text-align: center;
+}
+
+.pill--over {
+  background: #fdeceb;
+  color: #b42318;
+}
+
+.pill--under {
+  background: #e6f0f8;
+  color: #175a8a;
+}
+
+/* ---- accuracy overview ---- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 14px;
+  margin: 0 0 var(--gap);
+}
+
+.hero-card {
+  padding: 20px 22px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  animation: rise 0.5s var(--ease) both;
+}
+
+.hero-card:nth-child(2) {
+  animation-delay: 0.07s;
+}
+
+.hero-card:nth-child(3) {
+  animation-delay: 0.14s;
+}
+
+.hero-card h3 {
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+.hero-card .muted {
+  margin: 10px 0 0;
+}
+
+.donut {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+
+.donut__chart {
+  position: relative;
+}
+
+.donut__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut__center strong {
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.donut__center span {
+  color: var(--color-muted);
+  font-size: var(--font-small);
+}
+
+.donut__legend {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--font-small);
+}
+
+.donut__legend li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.donut__legend strong {
+  grid-column: 2;
+  font-size: 15px;
+}
+
+.donut__legend .swatch {
+  margin: 0;
+  grid-row: span 2;
+}
+
+.coverage {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.coverage__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.coverage__track {
+  height: 10px;
+  border-radius: 10px;
+  background: var(--green-50);
+  overflow: hidden;
+}
+
+.coverage__fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--green-600), var(--green-900));
+  transition: width 0.8s var(--ease);
+}
+
+.spark {
+  margin: 0 -6px;
+}
+
+/* ---- section headings ---- */
+.page > h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page > h2::before {
+  content: '';
+  width: 6px;
+  height: 22px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, var(--green-600), var(--lime));
+}
+
+.findings h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.findings h2::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 5px rgb(220 234 107 / 25%);
+}
+
+@media (max-width: 480px) {
+  .donut {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

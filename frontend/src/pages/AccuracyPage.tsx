@@ -9,6 +9,7 @@ import type {
   MetricsResponse,
   TimeseriesResponse,
 } from '../api/types.ts'
+import { AccuracyHero } from '../components/AccuracyHero.tsx'
 import { BreakdownChart, ErrorHistogram, LowSampleKey } from '../components/AccuracyCharts.tsx'
 import { EmptyState, ErrorState, LoadingState } from '../components/States.tsx'
 import { DATA_SCOPE_NOTE } from '../constants.ts'
@@ -109,6 +110,7 @@ function ReportBody({ report }: { report: Report }) {
           numbers as indicative.
         </p>
       )}
+      <AccuracyHero errors={errors} days={day.groups} />
       <dl className="kpis kpis--six" aria-label="Accuracy metrics">
         <Card label="Mean absolute error (MAE)" value={formatPower(m.mae)} help={METRIC_HELP.mae} />
         <Card label="RMSE" value={formatPower(m.rmse)} help={METRIC_HELP.rmse} />

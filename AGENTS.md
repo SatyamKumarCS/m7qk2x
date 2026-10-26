@@ -7,9 +7,11 @@ Wind Forecast Monitor: a React + FastAPI web app that shows a GB day-ahead power
 - the offline data pipeline;
 - the selection, metrics and band engines;
 - the read-only API;
-- all three views: Decision, Forecast vs actual (Explorer) and Accuracy report.
+- all three views: Decision, Forecast vs actual (Explorer) and Accuracy report;
+- local Docker (`make up`);
+- the production deployment: both parts on Vercel, deployed by the owner on 2026-10-26.
 
-Docker, production deployment (Vercel chosen, but the owner deploys), and the submission README and video are still to do. The next tickets are on the frontier in [issues/README.md](issues/README.md).
+Production URLs and the verification results are in [ADR 0007](docs/adr/0007-hosting.md). The bundle size, cold start, build Python version, plan, and the PRD §11.5 checklist on the deployed app are still pending. The submission README and video are still to do. The next tickets are on the frontier in [issues/README.md](issues/README.md).
 
 ## Architecture at a glance
 
@@ -26,11 +28,11 @@ Details are in [spec](docs/spec.md) §1, §5 and §6.
   - `data_store.py` loads the parquet once;
   - `schemas.py` holds exact-key Pydantic models;
   - `about.py` holds the assumptions and sources text.
-- **Frontend** (`frontend/src/`, React 19 + Vite + Recharts):
+- **Frontend** (`frontend/src/`, React 19 + Vite + Recharts, styled with Tailwind CSS v4 and shadcn/ui on Radix):
   - `App.tsx` is the shell: tabs, a History-API router, URL-driven filters (`hooks/useFilters.ts`) and the server status.
   - `api/` holds the typed client, with `types.ts` mirroring spec §5.
   - `pages/` holds one page per view.
-  - `components/` holds the charts and shared UI.
+  - `components/` holds the charts and shared UI; `components/ui/` holds shadcn/ui components, added with the shadcn CLI (`components.json`) and edited in place.
   - `utils/` holds pure, tested logic: time, formatting, and per-view helpers.
   - `test/` holds the API fixtures.
 

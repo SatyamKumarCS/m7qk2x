@@ -103,6 +103,7 @@ function DayView({ band, series }: { band: BandResponse; series: TimeseriesRespo
   const first = Date.parse(series.points[0]?.startTime ?? band.points[0].startTime)
   const domain: [number, number] = [first, first + series.points.length * 1_800_000]
   const missingForecast = summary.points - summary.forecastHours
+  const maxForecast = Math.max(1, ...band.points.map((p) => p.forecast ?? 0))
 
   return (
     <>
@@ -169,33 +170,41 @@ function DayView({ band, series }: { band: BandResponse; series: TimeseriesRespo
 
       <details className="table-toggle">
         <summary>Hourly values (table)</summary>
-        <table className="data-table">
-          <caption className="visually-hidden">
-            Hourly forecast, planning band and actual, UK time
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">UK time</th>
-              <th scope="col">Forecast</th>
-              <th scope="col">Band ({band.level}%)</th>
-              {revealed && <th scope="col">Actual</th>}
-            </tr>
-          </thead>
-          <tbody>
-            {band.points.map((p) => (
-              <tr key={p.startTime}>
-                <th scope="row">{formatUkTime(p.startTime)}</th>
-                <td>{formatPower(p.forecast)}</td>
-                <td>
-                  {p.lower !== null && p.upper !== null
-                    ? `${formatPower(p.lower)} – ${formatPower(p.upper)}`
-                    : '–'}
-                </td>
-                {revealed && <td>{formatPower(p.actual)}</td>}
+        <div className="table-wrap">
+          <table className="data-table">
+            <caption className="visually-hidden">
+              Hourly forecast, planning band and actual, UK time
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">UK time</th>
+                <th scope="col">Forecast</th>
+                <th scope="col">Band ({band.level}%)</th>
+                {revealed && <th scope="col">Actual</th>}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {band.points.map((p) => (
+                <tr key={p.startTime}>
+                  <th scope="row">{formatUkTime(p.startTime)}</th>
+                  <td className="cell-bar">
+                    <span
+                      className="cell-bar__fill cell-bar__fill--forecast"
+                      style={{ width: `${((p.forecast ?? 0) / maxForecast) * 100}%` }}
+                    />
+                    <span className="cell-bar__text">{formatPower(p.forecast)}</span>
+                  </td>
+                  <td>
+                    {p.lower !== null && p.upper !== null
+                      ? `${formatPower(p.lower)} – ${formatPower(p.upper)}`
+                      : '–'}
+                  </td>
+                  {revealed && <td>{formatPower(p.actual)}</td>}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </details>
     </>
   )

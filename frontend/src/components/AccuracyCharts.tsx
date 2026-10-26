@@ -7,6 +7,7 @@ import {
   type BarShapeProps,
   BarChart,
   CartesianGrid,
+  LabelList,
   Rectangle,
   ResponsiveContainer,
   Tooltip,
@@ -18,16 +19,24 @@ import type { BreakdownGroup } from '../api/types.ts'
 import { binLabel, type HistogramBin, LOW_SAMPLE_N } from '../utils/accuracy.ts'
 import { formatCount, formatPower, formatSignedPower } from '../utils/format.ts'
 
-const COLORS = { mae: '#1f6feb', low: '#b8c0c8', over: '#d62728', under: '#1f77b4' }
+const COLORS = { mae: 'var(--chart-bar-to)', low: '#b8c0c8', over: '#d62728', under: '#1f77b4' }
 
 function MaeShape(props: BarShapeProps) {
   const group = props.payload as BreakdownGroup
-  return <Rectangle {...props} fill={group.lowSample ? COLORS.low : COLORS.mae} />
+  return (
+    <Rectangle
+      {...props}
+      radius={[6, 6, 0, 0]}
+      fill={group.lowSample ? COLORS.low : 'url(#mae-fill)'}
+    />
+  )
 }
 
 function HistogramShape(props: BarShapeProps) {
   const bin = props.payload as HistogramBin
-  return <Rectangle {...props} fill={bin.lo >= 0 ? COLORS.over : COLORS.under} />
+  return (
+    <Rectangle {...props} radius={[3, 3, 0, 0]} fill={bin.lo >= 0 ? COLORS.over : COLORS.under} />
+  )
 }
 
 function GroupTooltip({
@@ -68,19 +77,23 @@ function NTick(props: {
   if (!payload) return null
   const g = groups[payload.index]
   return (
-    <text x={x} y={y + 12} textAnchor="middle" fontSize={11} fill="#3e4c59">
+    <text x={x} y={y + 12} textAnchor="middle" fontSize={11} fill="var(--color-text)">
       <tspan x={x}>{payload.value}</tspan>
-      <tspan x={x} dy={14} fill="#52606d">
+      <tspan x={x} dy={14} fill="var(--color-muted)">
         n {formatCount(g?.n)}
       </tspan>
       {g?.lowSample && (
-        <tspan x={x} dy={14} fill="#7b8794">
+        <tspan x={x} dy={14} fill="var(--color-muted)">
           low
         </tspan>
       )}
     </text>
   )
 }
+
+/** Red when the forecast ran high, blue when it ran low; text always carries the sign too. */
+const biasClass = (bias: number | null) =>
+  bias === null || bias === 0 ? undefined : bias > 0 ? 'is-over' : 'is-under'
 
 interface BreakdownProps {
   title: string
@@ -99,6 +112,7 @@ export function BreakdownChart({
   format = (g) => g,
   showN = false,
 }: BreakdownProps) {
+  const maxMae = Math.max(0, ...groups.map((g) => g.mae ?? 0))
   return (
     <figure className="breakdown">
       <figcaption>
@@ -108,16 +122,42 @@ export function BreakdownChart({
       <div className="chart" role="img" aria-label={`${title}: mean absolute error per group`}>
         <ResponsiveContainer width="100%" height={showN ? 265 : 230}>
           <BarChart data={groups} margin={{ top: 8, right: 16, bottom: showN ? 34 : 0, left: 8 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e4e7eb" vertical={false} />
+            <defs>
+              <linearGradient id="mae-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="var(--chart-bar-from)" />
+                <stop offset="100%" stopColor="var(--chart-bar-to)" />
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray="2 5" stroke="var(--chart-grid)" vertical={false} />
             <XAxis
               dataKey="group"
               interval={showN ? 0 : 'preserveStartEnd'}
               tick={showN ? <NTick groups={groups} /> : { fontSize: 12 }}
               tickFormatter={showN ? undefined : format}
             />
-            <YAxis tickFormatter={(v: number) => formatPower(v)} width={72} fontSize={13} />
-            <Tooltip content={(p) => <GroupTooltip {...p} format={format} />} />
-            <Bar dataKey="mae" name="MAE" shape={MaeShape} isAnimationActive={false} />
+            <YAxis
+              tickFormatter={(v: number) => formatPower(v)}
+              width={72}
+              fontSize={13}
+              tickLine={false}
+              axisLine={false}
+            />
+            <Tooltip
+              cursor={{ fill: 'rgb(18 74 56 / 6%)' }}
+              content={(p) => <GroupTooltip {...p} format={format} />}
+            />
+            <Bar dataKey="mae" name="MAE" shape={MaeShape} isAnimationActive={false}>
+              {groups.length <= 8 && (
+                <LabelList
+                  dataKey="mae"
+                  position="top"
+                  fontSize={12}
+                  fontWeight={600}
+                  fill="var(--chart-accent)"
+                  formatter={(v: unknown) => formatPower(Number(v))}
+                />
+              )}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -125,33 +165,41 @@ export function BreakdownChart({
         <summary>
           {title} (table, {groups.length} rows)
         </summary>
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th scope="col">{groupHeader}</th>
-              <th scope="col">Hours (n)</th>
-              <th scope="col">MAE</th>
-              <th scope="col">RMSE</th>
-              <th scope="col">Bias</th>
-              <th scope="col">P90 abs. error</th>
-            </tr>
-          </thead>
-          <tbody>
-            {groups.map((g) => (
-              <tr key={g.group} className={g.lowSample ? 'is-low-sample' : undefined}>
-                <th scope="row">
-                  {format(g.group)}
-                  {g.lowSample ? ' (low sample)' : ''}
-                </th>
-                <td>{formatCount(g.n)}</td>
-                <td>{formatPower(g.mae)}</td>
-                <td>{formatPower(g.rmse)}</td>
-                <td>{formatSignedPower(g.bias)}</td>
-                <td>{formatPower(g.p90)}</td>
+        <div className="table-wrap">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th scope="col">{groupHeader}</th>
+                <th scope="col">Hours (n)</th>
+                <th scope="col">MAE</th>
+                <th scope="col">RMSE</th>
+                <th scope="col">Bias</th>
+                <th scope="col">P90 abs. error</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {groups.map((g) => (
+                <tr key={g.group} className={g.lowSample ? 'is-low-sample' : undefined}>
+                  <th scope="row">
+                    {format(g.group)}
+                    {g.lowSample ? ' (low sample)' : ''}
+                  </th>
+                  <td>{formatCount(g.n)}</td>
+                  <td className="cell-bar">
+                    <span
+                      className="cell-bar__fill"
+                      style={{ width: `${maxMae > 0 ? ((g.mae ?? 0) / maxMae) * 100 : 0}%` }}
+                    />
+                    <span className="cell-bar__text">{formatPower(g.mae)}</span>
+                  </td>
+                  <td>{formatPower(g.rmse)}</td>
+                  <td className={biasClass(g.bias)}>{formatSignedPower(g.bias)}</td>
+                  <td>{formatPower(g.p90)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </details>
     </figure>
   )
@@ -174,7 +222,7 @@ export function ErrorHistogram({ bins, total }: { bins: HistogramBin[]; total: n
             barCategoryGap={1}
             margin={{ top: 8, right: 16, bottom: 0, left: 8 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e4e7eb" vertical={false} />
+            <CartesianGrid strokeDasharray="2 5" stroke="var(--chart-grid)" vertical={false} />
             <XAxis
               dataKey="lo"
               tickFormatter={(v: number) => formatSignedPower(v)}
@@ -183,6 +231,7 @@ export function ErrorHistogram({ bins, total }: { bins: HistogramBin[]; total: n
             />
             <YAxis allowDecimals={false} width={48} fontSize={13} />
             <Tooltip
+              cursor={{ fill: 'rgb(18 74 56 / 6%)' }}
               content={({ active, payload }) => {
                 if (!active || !payload?.length) return null
                 const bin = payload[0].payload as HistogramBin
@@ -205,7 +254,7 @@ export function ErrorHistogram({ bins, total }: { bins: HistogramBin[]; total: n
 /** Legend shared by the breakdown charts. */
 export function LowSampleKey() {
   return (
-    <ul className="legend" aria-label="Chart key">
+    <ul className="legend legend--chips" aria-label="Chart key">
       <li>
         <span className="swatch swatch--box" style={{ background: COLORS.mae }} /> MAE per group
       </li>

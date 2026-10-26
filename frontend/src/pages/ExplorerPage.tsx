@@ -30,6 +30,10 @@ interface Props {
   onChange: (patch: Partial<Filters>) => void
 }
 
+/** Red pill when the forecast ran high, blue when low; the sign in the text says the same. */
+const errorPill = (error: number | null) =>
+  error === null || error === 0 ? 'pill' : error > 0 ? 'pill pill--over' : 'pill pill--under'
+
 const STORMIEST_RULE =
   'Stormiest week = the 7 consecutive delivery days with the highest average metered wind.'
 
@@ -211,33 +215,37 @@ function RangeView({ data, start, end }: { data: TimeseriesResponse; start: stri
       <details className="table-toggle" onToggle={onToggle}>
         <summary>Hourly values (table, {hourly.length} rows)</summary>
         {tableOpen && (
-          <table className="data-table">
-            <caption className="visually-hidden">
-              Hourly forecast, actual and error, UK time
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">UK time</th>
-                <th scope="col">Actual</th>
-                <th scope="col">Forecast</th>
-                <th scope="col">Error</th>
-                <th scope="col">Published</th>
-                <th scope="col">Horizon</th>
-              </tr>
-            </thead>
-            <tbody>
-              {hourly.map((p) => (
-                <tr key={p.startTime}>
-                  <th scope="row">{formatUkDateTime(p.startTime)}</th>
-                  <td>{formatPower(p.actual)}</td>
-                  <td>{formatPower(p.forecast)}</td>
-                  <td>{formatSignedPower(p.error)}</td>
-                  <td>{p.publishTime ? formatUkTime(p.publishTime) : '–'}</td>
-                  <td>{formatHours(p.horizonHours)}</td>
+          <div className="table-wrap">
+            <table className="data-table">
+              <caption className="visually-hidden">
+                Hourly forecast, actual and error, UK time
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">UK time</th>
+                  <th scope="col">Actual</th>
+                  <th scope="col">Forecast</th>
+                  <th scope="col">Error</th>
+                  <th scope="col">Published</th>
+                  <th scope="col">Horizon</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {hourly.map((p) => (
+                  <tr key={p.startTime}>
+                    <th scope="row">{formatUkDateTime(p.startTime)}</th>
+                    <td>{formatPower(p.actual)}</td>
+                    <td>{formatPower(p.forecast)}</td>
+                    <td>
+                      <span className={errorPill(p.error)}>{formatSignedPower(p.error)}</span>
+                    </td>
+                    <td>{p.publishTime ? formatUkTime(p.publishTime) : '–'}</td>
+                    <td>{formatHours(p.horizonHours)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </details>
     </>
